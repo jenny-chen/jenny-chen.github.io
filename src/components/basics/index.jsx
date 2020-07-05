@@ -1,5 +1,6 @@
 export Box from "./box"
 export Description from "./description"
+export ExtLink from "./ext-link"
 export Flex from "./flex"
 export Heading from "./heading"
 export Link from "./Link"

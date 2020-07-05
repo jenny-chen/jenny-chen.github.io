@@ -16,7 +16,7 @@ const Sidebar = ({ page }) => (
   <Box flex="1" outside style={{ maxWidth: "300px", minWidth: "300px" }}>
     <Side>
 
-      <img src={profile} height="50px" width="50px" />
+      <img alt="headshot" src={profile} height="50px" width="50px" />
       <Title>
       Hi, my name is Jenny!
       </Title>

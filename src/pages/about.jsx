@@ -38,7 +38,7 @@ const About = () => (
       I currently study Software Engineering at the University of Waterloo. I’m excited to work on and use new technology to positively impact communities and help improve the world we live in as a whole.
     </Text>
 
-    <Flex style={{ marginTop: "20px" }}>
+    <Flex boxWidth="32%" style={{ marginTop: "20px" }}>
       <Box>
         <Heading>current term</Heading>
         <Text>Fullstack intern at Jewlr</Text>

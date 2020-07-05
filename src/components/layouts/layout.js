@@ -7,8 +7,6 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
 
 import Theme from "../basics/theme"
 import { Box, Flex } from "../basics"
@@ -17,19 +15,10 @@ import Sidebar from "../sidebar"
 
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
 
   const styles = {
     margin: "auto",
-    maxWidth: "1000px",
+    maxWidth: "1200px",
     lineHeight: "1.5",
     WebkitFontSmoothing: "antialiased"
   }
@@ -37,9 +26,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <Theme>
-        <Flex style={ styles }>
+        <Flex justifyContent="center" style={ styles }>
         <Sidebar />
-          <Box flex="3" outside>
+          <Box flex="4" outside>
             <main>{children}</main>
           </Box>
         </Flex>

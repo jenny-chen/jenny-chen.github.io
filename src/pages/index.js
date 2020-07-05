@@ -1,7 +1,6 @@
 import React from "react"
 
 import Layout from "../components/layouts/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import resume from "../../assets/resume.pdf"
 
