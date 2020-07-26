@@ -1,18 +1,15 @@
 import styled from "styled-components"
-import { Box } from "./index"
+import { compose, flexbox, layout } from "styled-system"
 
 const Flex = styled.div`
-  display: ${props => props.display || "block"};
-  justify-content: ${props => props.justifyContent || "space-between"};
+  justify-content: space-between;
   width: 100%;
 
-  @media (min-width: ${props => props.theme.screens.mobile}) {
+  ${({ theme }) => `${theme.mediaQueries.tablet} {
     display: flex;
+  }`}
 
-    ${Box} {
-      width: ${props => props.boxWidth};
-    }
-  }
+  ${compose(flexbox, layout)}
 `
 
 export default Flex

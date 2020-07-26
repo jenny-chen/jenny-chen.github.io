@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components"
+import { compose, typography } from "styled-system"
 
 const Text = styled.p`
   color: ${props => props.theme.colors.black};
@@ -12,6 +13,8 @@ const Text = styled.p`
     font-size: 1em;
     margin-bottom: 2em;
   `}
+
+  ${compose(typography)}
 `
 
 export default Text

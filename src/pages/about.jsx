@@ -4,6 +4,7 @@ import Layout from "../components/layouts/layout"
 import SEO from "../components/seo"
 import {
   Box,
+  ExtLink,
   Flex,
   Heading,
   Link,
@@ -12,7 +13,7 @@ import {
 } from "../components/basics"
 
 const About = () => (
-  <Layout>
+  <Layout tab="About">
     <SEO title="About" />
     <Title>Biography</Title>
 
@@ -23,7 +24,7 @@ const About = () => (
     </Text>
 
     <Text>
-      At home, I’m the middle child between two sisters, meaning I’ve never had a shortage of people around. In between going on neighbourhood adventures, I would often lose myself in books, something that hasn’t changed much over the years. At school, I tended toward the quiet side as a student, usually completing my work independently and spend my free time reading. By grade 4, I transferred into the gifted program and then eventually the <Link href="https://www.ibo.org/">International Baccalaureate (IB)</Link> program in high school, from which I graduated in 2019. I was fairly involved throughout high school, serving on school councils, and participating in sports such as track & field, volleyball, and rugby.
+      At home, I’m the middle child between two sisters, meaning I’ve never had a shortage of people around. In between going on neighbourhood adventures, I would often lose myself in books, something that hasn’t changed much over the years. At school, I tended toward the quiet side as a student, usually completing my work independently and spending my free time <Link to="/reading">reading</Link>. By grade 4, I transferred into the gifted program and then eventually the <ExtLink href="https://www.ibo.org/">International Baccalaureate (IB)</ExtLink> program in high school, from which I graduated in 2019. I was fairly involved throughout high school, serving on school councils, and participating in sports such as track & field, volleyball, and rugby.
     </Text>
 
     <Heading>technology</Heading>
@@ -35,7 +36,7 @@ const About = () => (
     <Heading>up next</Heading>
 
     <Text>
-      I currently study Software Engineering at the University of Waterloo. I’m excited to work on and use new technology to positively impact communities and help improve the world we live in as a whole.
+      I currently study Software Engineering at the <ExtLink href="https:uwaterloo.ca">University of Waterloo</ExtLink>. I’m excited to work on and use new technology to positively impact communities and help improve the world we live in as a whole.
     </Text>
 
     <Flex boxWidth="32%" style={{ marginTop: "20px" }}>

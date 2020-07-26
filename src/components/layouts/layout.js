@@ -14,7 +14,7 @@ import Sidebar from "../sidebar"
 // import "./layout.css"
 
 
-const Layout = ({ children }) => {
+const Layout = ({ tab, children }) => {
 
   const styles = {
     margin: "auto",
@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
     <>
       <Theme>
         <Flex justifyContent="center" style={ styles }>
-        <Sidebar />
+        <Sidebar tab={tab} />
           <Box flex="4" outside>
             <main>{children}</main>
           </Box>

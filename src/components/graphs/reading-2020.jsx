@@ -15,8 +15,6 @@ class Reading2020Graph extends Component {
     const height = +div.node().offsetHeight;
     const width = +div.node().offsetWidth;
 
-    console.log(width)
-
     const svg = div.append('svg')
       .attr('width', width)
       .attr('height', height);

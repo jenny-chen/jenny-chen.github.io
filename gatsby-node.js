@@ -10,6 +10,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
   const readingLayout = path.resolve(`src/components/layouts/reading-layout.jsx`)
+  const poemLayout = path.resolve(`src/components/layouts/poem-layout.jsx`)
 
   const result = await graphql(`
     {
@@ -22,6 +23,7 @@ exports.createPages = async ({ actions, graphql }) => {
             frontmatter {
               path
             }
+            fileAbsolutePath
           }
         }
       }
@@ -33,11 +35,21 @@ exports.createPages = async ({ actions, graphql }) => {
   }
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    createPage({
-      path: node.frontmatter.path,
-      component: readingLayout,
-      context: {}, // additional data can be passed via context
-    })
+    if (node.fileAbsolutePath.includes("src/reviews")) {
+      createPage({
+        path: node.frontmatter.path,
+        component: readingLayout,
+        context: {}, // additional data can be passed via context
+      })
+    }
+
+    if (node.fileAbsolutePath.includes("src/poems")) {
+      createPage({
+        path: node.frontmatter.path,
+        component: poemLayout,
+        context: {}, 
+      })  
+    }
   })
 }
 

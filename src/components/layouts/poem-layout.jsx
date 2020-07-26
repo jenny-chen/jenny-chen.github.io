@@ -5,26 +5,25 @@ import { graphql } from "gatsby"
 import Layout from "./layout"
 import SEO from "../seo"
 
-import { ExtLink, Heading, Link, Text, Title } from "../basics"
+import { Heading, Link, Pre, Text, Title } from "../basics"
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
-  components: { 
-    h1: Title,
-    h3: Heading,
-    p: Text,
+  components: {
+    h1: Title, 
+    h3: Heading, 
+    p: Text, 
     "Link": Link,
-    "ExtLink" : ExtLink,
+    pre: Pre,
   }
 }).Compiler
 
-export default function ReadingLayout({ data }) {
+export default function PoemLayout({ data }) {
   const { markdownRemark: post } = data
   return (
     <Layout>
       <SEO title={post.frontmatter.title} />
-      <Title><ExtLink href={post.frontmatter.goodreads}>{post.frontmatter.title}</ExtLink>{" by " + post.frontmatter.author}</Title>
-      <Heading>{post.frontmatter.date}</Heading>
+      <Title>{post.frontmatter.title}</Title>
       {
         renderAst(post.htmlAst)
       }
@@ -33,15 +32,12 @@ export default function ReadingLayout({ data }) {
 }
 
 export const pageQuery = graphql`
-  query ReadingByPath($path: String!) {
+  query PoemByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       htmlAst
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
         path
-        author
         title
-        goodreads
       }
     }
   }

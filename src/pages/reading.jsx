@@ -19,14 +19,14 @@ import {
 } from "../components/basics"
 
 const RecHeading = styled(Heading)`
-  @media (min-width: ${props => props.theme.screens.mobile}) {
+  ${({ theme }) => `${theme.mediaQueries.tablet} {
     margin-top: 10px;
-  }
+  }`}
 `
 
 export default function Reading() {
   return (
-    <Layout>
+    <Layout tab="Reading">
       <SEO title="Reading" />
       <Title>Reading</Title>
       <Text description>What I talk about when I talk about books</Text>
@@ -36,14 +36,14 @@ export default function Reading() {
       <Section>
         <Subtitle>Recommended Reading</Subtitle>
 
-        <Flex boxWidth="32%">
-          <Box>
+        <Flex>
+          <Box width="32%">
             <RecHeading>non-fiction</RecHeading>
             <UList>
               <li>
                 <Text>
                   <ExtLink
-                    to="https://www.goodreads.com/book/show/38746485-becoming"
+                    href="https://www.goodreads.com/book/show/38746485-becoming"
                     td="none"
                   >
                     Becoming
@@ -54,7 +54,7 @@ export default function Reading() {
               <li>
                 <Text>
                   <ExtLink
-                    to="https://www.goodreads.com/book/show/35133922-educated"
+                    href="https://www.goodreads.com/book/show/35133922-educated"
                     td="none"
                   >
                     Educated
@@ -65,7 +65,7 @@ export default function Reading() {
               <li>
                 <Text>
                   <ExtLink
-                    to="https://www.goodreads.com/book/show/41104077-invisible-women"
+                    href="https://www.goodreads.com/book/show/41104077-invisible-women"
                     td="none"
                   >
                     Invisible Women
@@ -76,7 +76,7 @@ export default function Reading() {
               <li>
                 <Text>
                   <ExtLink
-                    to="https://www.goodreads.com/book/show/37570546-maybe-you-should-talk-to-someone"
+                    href="https://www.goodreads.com/book/show/37570546-maybe-you-should-talk-to-someone"
                     td="none"
                   >
                     Maybe You Should Talk to Someone
@@ -87,7 +87,7 @@ export default function Reading() {
               <li>
                 <Text>
                   <ExtLink
-                    to="https://www.goodreads.com/book/show/71730.Nonviolent_Communication"
+                    href="https://www.goodreads.com/book/show/71730.Nonviolent_Communication"
                     td="none"
                   >
                     Non-Violent Communication
@@ -98,7 +98,7 @@ export default function Reading() {
               <li>
                 <Text>
                   <ExtLink
-                    to="https://www.goodreads.com/en/book/show/43422738-prepared"
+                    href="https://www.goodreads.com/en/book/show/43422738-prepared"
                     td="none"
                   >
                     Prepared
@@ -108,13 +108,13 @@ export default function Reading() {
             </UList>
           </Box>
 
-          <Box>
+          <Box width="32%">
             <RecHeading>fiction</RecHeading>
             <UList>
               <li>
                 <Text>
                   <ExtLink
-                    to="https://www.goodreads.com/book/show/428042.Airborn"
+                    href="https://www.goodreads.com/book/show/428042.Airborn"
                     td="none"
                   >
                     Airborn
@@ -125,7 +125,7 @@ export default function Reading() {
               <li>
                 <Text>
                   <ExtLink
-                    to="https://www.goodreads.com/book/show/22733729-the-long-way-to-a-small-angry-planet"
+                    href="https://www.goodreads.com/book/show/22733729-the-long-way-to-a-small-angry-planet"
                     td="none"
                   >
                     The Long Way to a Small, Angry Planet
@@ -136,7 +136,7 @@ export default function Reading() {
               <li>
                 <Text>
                   <ExtLink
-                    to="https://www.goodreads.com/book/show/17333230-the-luminaries"
+                    href="https://www.goodreads.com/book/show/17333230-the-luminaries"
                     td="none"
                   >
                     The Luminaries
@@ -147,7 +147,7 @@ export default function Reading() {
               <li>
                 <Text>
                   <ExtLink
-                    to="https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day"
+                    href="https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day"
                     td="none"
                   >
                     The Remains of the Day
@@ -158,7 +158,7 @@ export default function Reading() {
               <li>
                 <Text>
                   <ExtLink
-                    to="https://www.goodreads.com/book/show/10357575-1q84"
+                    href="https://www.goodreads.com/book/show/10357575-1q84"
                     td="none"
                   >
                     1Q84
@@ -168,7 +168,7 @@ export default function Reading() {
             </UList>
           </Box>
 
-          <Box>
+          <Box width="32%">
             <RecHeading>other</RecHeading>
           </Box>
         </Flex>

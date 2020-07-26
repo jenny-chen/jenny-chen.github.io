@@ -11,12 +11,14 @@ import {
 
 export default function Writing() {
   return (
-    <Layout>
+    <Layout tab="Writing">
       <SEO title="Writing" />
       <Title>Writing</Title>
       <Text description>My thoughts in words</Text>
 
       <PageList section="poems" />
+
+      <PageList section="essays" />
     </Layout>
   )
 }
