@@ -65,7 +65,7 @@ const Sidebar = ({ page, tab }) => (
         </Title>
         <Socials />
         <Text>
-          I’m currently a software engineering student at the University of Waterloo. When I’m not studying or coding, you can usually catch me reading, gaming, or cooking. 
+          I’m currently a software engineering student at the University of Waterloo. When I’m not studying or coding, you can usually catch me reading, gaming, or cooking. This is a test.
         </Text>
 
         <Text>
