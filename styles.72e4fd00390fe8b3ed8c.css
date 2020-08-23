@@ -1,0 +1,1 @@
+.graphDiv{width:100%;height:300px;margin-bottom:2em}svg{margin-top:1em}circle,rect{fill:#4682b4}.line-path{fill:none;stroke:#4682b4;stroke-width:2}.area-path{fill:#4682b4;fill-opacity:.4}text{font-size:1em;font-family:$monoFonts}.tick text{fill:#635f5d}.domain,.tick line{stroke:#635f5d}.axis-label{font-size:1.4em}@media screen and (max-width:870px){.hide-graph{display:none}}
