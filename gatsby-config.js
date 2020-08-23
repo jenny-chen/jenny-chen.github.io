@@ -4,7 +4,7 @@ module.exports = {
     description: `Personal Website`,
     author: `@jenny-chen`,
   },
-  pathPrefix: "/gatsby-portfolio",
+  pathPrefix: "gatsby-portfolio",
   plugins: [
     '@babel/plugin-proposal-export-default-from',
     `gatsby-plugin-styled-components`,
