@@ -11,6 +11,7 @@ import {
   ExtLink,
   Flex,
   Heading,
+  Link,
   Section,
   Subtitle,
   Text,
@@ -32,6 +33,9 @@ export default function Reading() {
       <Text description>What I talk about when I talk about books</Text>
 
       <Reading2020Graph />
+
+      <Text><Link td="none" to="/reading-list-2020">Reading List 2020</Link></Text>
+      <br />
 
       <Section>
         <Subtitle>Recommended Reading</Subtitle>
