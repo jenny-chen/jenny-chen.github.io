@@ -26,6 +26,22 @@ const RecHeading = styled(Heading)`
 `
 
 export default function Reading() {
+  const recNonFic = [
+    {title: "Becoming", url: "https://www.goodreads.com/book/show/38746485-becoming"},
+    {title: "Educated", url: "https://www.goodreads.com/book/show/35133922-educated"},
+    {title: "Invisible Women", url: "https://www.goodreads.com/book/show/41104077-invisible-women"},
+    {title: "Maybe You Should Talk to Someone", url: "https://www.goodreads.com/book/show/37570546-maybe-you-should-talk-to-someone"},
+    {title: "Non-Violent Communication", url: "https://www.goodreads.com/book/show/71730.Nonviolent_Communication"},
+    {title: "Prepared", url: "https://www.goodreads.com/en/book/show/43422738-prepared"}
+  ]
+  const recFic = [
+    {title: "Airborn", url: "https://www.goodreads.com/book/show/428042.Airborn"},
+    {title: "The Long Way to a Small, Angry Planet", url: "https://www.goodreads.com/book/show/22733729-the-long-way-to-a-small-angry-planet"},
+    {title: "The Luminaries", url: "https://www.goodreads.com/book/show/17333230-the-luminaries"},
+    {title: "The Remains of the Day", url: "https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day"},
+    {title: "The Three-Body Problem", url: "https://www.goodreads.com/book/show/20518872-the-three-body-problem"},
+    {title: "1Q84", url: "https://www.goodreads.com/book/show/10357575-1q84"}
+  ]
   return (
     <Layout tab="Reading">
       <SEO title="Reading" />
@@ -40,139 +56,52 @@ export default function Reading() {
       <Section>
         <Subtitle>Recommended Reading</Subtitle>
 
-        <Flex>
-          <Box width="32%">
+        <Flex boxWidth="32%">
+          <Box>
             <RecHeading>non-fiction</RecHeading>
             <UList>
-              <li>
-                <Text>
-                  <ExtLink
-                    href="https://www.goodreads.com/book/show/38746485-becoming"
-                    td="none"
-                  >
-                    Becoming
-                  </ExtLink>
-                </Text>
-              </li>
-
-              <li>
-                <Text>
-                  <ExtLink
-                    href="https://www.goodreads.com/book/show/35133922-educated"
-                    td="none"
-                  >
-                    Educated
-                  </ExtLink>
-                </Text>
-              </li>
-
-              <li>
-                <Text>
-                  <ExtLink
-                    href="https://www.goodreads.com/book/show/41104077-invisible-women"
-                    td="none"
-                  >
-                    Invisible Women
-                  </ExtLink>
-                </Text>
-              </li>
-
-              <li>
-                <Text>
-                  <ExtLink
-                    href="https://www.goodreads.com/book/show/37570546-maybe-you-should-talk-to-someone"
-                    td="none"
-                  >
-                    Maybe You Should Talk to Someone
-                  </ExtLink>
-                </Text>
-              </li>
-
-              <li>
-                <Text>
-                  <ExtLink
-                    href="https://www.goodreads.com/book/show/71730.Nonviolent_Communication"
-                    td="none"
-                  >
-                    Non-Violent Communication
-                  </ExtLink>
-                </Text>
-              </li>
-
-              <li>
-                <Text>
-                  <ExtLink
-                    href="https://www.goodreads.com/en/book/show/43422738-prepared"
-                    td="none"
-                  >
-                    Prepared
-                  </ExtLink>
-                </Text>
-              </li>
+              {
+                recNonFic.map((book, i) => {
+                  return (
+                    <li key={i}>
+                      <Text>
+                        <ExtLink
+                          href={book.url}
+                          td="none"
+                        >
+                          {book.title}
+                        </ExtLink>
+                      </Text>
+                    </li>
+                  )
+                })
+              }
             </UList>
           </Box>
 
-          <Box width="32%">
+          <Box>
             <RecHeading>fiction</RecHeading>
             <UList>
-              <li>
-                <Text>
-                  <ExtLink
-                    href="https://www.goodreads.com/book/show/428042.Airborn"
-                    td="none"
-                  >
-                    Airborn
-                  </ExtLink>
-                </Text>
-              </li>
-
-              <li>
-                <Text>
-                  <ExtLink
-                    href="https://www.goodreads.com/book/show/22733729-the-long-way-to-a-small-angry-planet"
-                    td="none"
-                  >
-                    The Long Way to a Small, Angry Planet
-                  </ExtLink>
-                </Text>
-              </li>
-
-              <li>
-                <Text>
-                  <ExtLink
-                    href="https://www.goodreads.com/book/show/17333230-the-luminaries"
-                    td="none"
-                  >
-                    The Luminaries
-                  </ExtLink>
-                </Text>
-              </li>
-
-              <li>
-                <Text>
-                  <ExtLink
-                    href="https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day"
-                    td="none"
-                  >
-                    The Remains of the Day
-                  </ExtLink>
-                </Text>
-              </li>
-
-              <li>
-                <Text>
-                  <ExtLink
-                    href="https://www.goodreads.com/book/show/10357575-1q84"
-                    td="none"
-                  >
-                    1Q84
-                  </ExtLink>
-                </Text>
-              </li>
+              {
+                recFic.map((book, i) => {
+                  return (
+                    <li key={i}>
+                      <Text>
+                        <ExtLink
+                          href={book.url}
+                          td="none"
+                        >
+                          {book.title}
+                        </ExtLink>
+                      </Text>
+                    </li>
+                  )
+                })
+              }
             </UList>
           </Box>
 
-          <Box width="32%">
+          <Box>
             <RecHeading>other</RecHeading>
           </Box>
         </Flex>

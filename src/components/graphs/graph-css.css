@@ -1,3 +1,8 @@
+/* VARIABLES */
+:root {
+  --monoFonts: "SF Mono", "Menlo", "Source Pro Code", monospace;
+}
+
 /* GRAPH CSS */
 
 .graphDiv {
@@ -14,6 +19,11 @@ rect, circle {
   fill: steelblue;
 }
 
+text {
+  font-size: 1em;
+  font-family: var(--monoFonts);
+}
+
 .line-path {
   fill: none;
   stroke: steelblue;
@@ -25,9 +35,9 @@ rect, circle {
   fill-opacity: 0.4;
 }
 
-text {
-  font-size: 1em;
-  font-family: $monoFonts;
+.axis-label {
+  fill: #635F5D;
+  font-size: 1.5em;
 }
 
 .tick text {

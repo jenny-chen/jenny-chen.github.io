@@ -36,13 +36,13 @@ const About = () => (
     <Heading>up next</Heading>
 
     <Text>
-      I currently study Software Engineering at the <ExtLink href="https:uwaterloo.ca">University of Waterloo</ExtLink>. I’m excited to work on and use new technology to positively impact communities and help improve the world we live in as a whole.
+      I currently study Software Engineering at the <ExtLink href="https://www.uwaterloo.ca">University of Waterloo</ExtLink>. I’m excited to work on and use new technology to positively impact communities and help improve the world we live in as a whole.
     </Text>
 
     <Flex boxWidth="32%" style={{ marginTop: "20px" }}>
       <Box>
         <Heading>current term</Heading>
-        <Text>Fullstack intern at Jewlr</Text>
+        <Text>2A school term at UWaterloo</Text>
       </Box>
 
       <Box>

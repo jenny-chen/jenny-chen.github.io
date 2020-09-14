@@ -1,5 +1,5 @@
 ---
-path: "/up-in-smoke"
+path: "/poems/up-in-smoke"
 title: "up in smoke"
 ---
 

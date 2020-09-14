@@ -1,5 +1,5 @@
 ---
-path: "/the-subtle-art-of-not-giving-a-f*ck"
+path: "/reviews/the-subtle-art-of-not-giving-a-f*ck"
 date: 2019-10-13
 author: "Mark Manson"
 title: "The Subtle Art of Not Giving a F*ck"

@@ -6,7 +6,7 @@ import styled from "styled-components"
 import Socials from "../components/socials"
 import resume from "../../assets/resume.pdf"
 
-import { Box, Link, Text, Title } from "./basics"
+import { Box, ExtLink, Heading, Link, PageLink, Text, Title } from "./basics"
 
 const Side = styled.div`
   border-bottom: 1px solid ${props => props.theme.colors.lightestGray}; 
@@ -22,25 +22,7 @@ const Side = styled.div`
   }`}
 `
 
-const PageLink = styled(Link)`
-  margin-right: 10px;
-  text-decoration: none;
-  font-weight: ${props => props.bold};
-  
-  &:hover {
-    text-decoration: underline;
-  }
-
-  ${({ theme }) => `${theme.mediaQueries.tablet} {
-    display: block;
-    margin-bottom: 5px;
-  }`}
-`
-
-const PageLinks = ({ tab }) => {
-  const pages = ["Portfolio", "About", "Reading", "Writing"]
-  const paths = ["/", "/about", "/reading", "/writing"]
-
+const PageLinks = ({ pages, paths, tab }) => {
   return (
     <>
       {pages.map((page, i) => (
@@ -54,33 +36,63 @@ const PageLinks = ({ tab }) => {
   )
 }
 
-const Sidebar = ({ page, tab }) => (
-  <Box flex="1" mt={{ _: "50px", tablet: "30px" }} outside style={{ maxWidth: "300px", minWidth: "300px" }}>
-    <Side>
+const Sidebar = ({ page, tab }) => {
+  const pages = ["About", "Reading"]
+  const paths = ["/about", "/reading"]
 
-      {/* <img alt="headshot" src={profile} height="50px" width="50px" /> */}
-      <Box display={{ _: "none", tablet: "block" }}>
-        <Title>
-          Hi, my name is Jenny!
-        </Title>
-        <Socials />
+  const experiencesPages = ["Jewlr", "HelpingHands", "ProjectCSGirls"]
+  const experiencesPaths = ["/jewlr", "/helpinghands", "/projectcsgirls"]
+
+  const projectsPages = []
+  const projectsPaths = []
+
+  return (
+    <Box flex="1" mt={{ _: "50px", tablet: "30px" }} outside style={{ maxWidth: "300px", minWidth: "300px" }}>
+      <Side>
+
+        {/* <img alt="headshot" src={profile} height="50px" width="50px" /> */}
+        <Box display={{ _: "none", tablet: "block" }}>
+          <Title>
+            Hi, my name is <Link to="/" td="none">Jenny</Link>!
+          </Title>
+          <Socials />
+          <Text>
+            I’m currently a software engineering student at the University of Waterloo. When I’m not studying or coding, you can usually catch me reading, gaming, or cooking.
+          </Text>
+
+          <Text>
+            Check out my <Link to={resume}>resume</Link>.
+          </Text>
+        </Box>
+
         <Text>
-          I’m currently a software engineering student at the University of Waterloo. When I’m not studying or coding, you can usually catch me reading, gaming, or cooking.
+          <br />
+          <PageLink bold={"Home" === tab ? 700 : 500} display={{ tablet: "none" }} to="/" >Home</PageLink>
+          <PageLinks pages={pages} paths={paths} tab={tab} />
         </Text>
 
-        <Text>
-          Check out my <Link to={resume}>resume</Link>.
-        </Text>
-      </Box>
+        <Box display={{ _: "none", tablet: "block" }}>
+          <Heading>experiences</Heading>
+          <Text>
+          <PageLinks pages={experiencesPages} paths={experiencesPaths} tab={tab} />
+          </Text>
 
-      <Text>
-        <br />
-        <PageLinks tab={tab} />
-      </Text>
+        <Heading>projects</Heading>
+          <Text>
+          <PageLinks pages={projectsPages} paths={projectsPaths} tab={tab} />
+          </Text>
+          <Text>
+          <ExtLink href="https://www.joannachen.ca/pear/" td="none">Pear</ExtLink>
+          </Text>
+          <Text>
+          <ExtLink href="https://devpost.com/jenny-chen?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" td="none">Hackathon Projects</ExtLink>
+          </Text>
+        </Box>
 
-    </Side>
-  </Box>
-)
+      </Side>
+    </Box>
+  )
+}
 
 Sidebar.propTypes = {
   page: PropTypes.string,

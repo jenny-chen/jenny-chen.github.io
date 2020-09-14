@@ -8,6 +8,10 @@ const Link = styled(L)`
   &:hover {
     text-decoration: underline;
   }
+
+  &:visited {
+    color: inherit;
+  }
 `
 
 export default Link

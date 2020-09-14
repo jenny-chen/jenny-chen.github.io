@@ -5,7 +5,7 @@ import { graphql } from "gatsby"
 import Layout from "./layout"
 import SEO from "../seo"
 
-import { ExtLink, Heading, Link, Pre, Text, Title } from "../basics"
+import { Box, ExtLink, Flex, Heading, Link, Pre, Text, Title } from "../basics"
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -19,12 +19,28 @@ const renderAst = new rehypeReact({
   }
 }).Compiler
 
-export default function PoemLayout({ data }) {
+export default function ExperienceLayout({ data }) {
   const { markdownRemark: post } = data
   return (
-    <Layout>
+    <Layout tab={post.frontmatter.title}>
       <SEO title={post.frontmatter.title} />
       <Title>{post.frontmatter.title}</Title>
+      <Flex boxWidth={{ _: "100%", tablet: "32%" }} style={{ marginTop: "20px" }}>
+        <Box>
+          <Heading>time</Heading>
+          <Text>{post.frontmatter.time}</Text>
+        </Box>
+
+        <Box>
+          <Heading>location</Heading>
+          <Text>{post.frontmatter.location}</Text>
+        </Box>
+        
+        <Box>
+          <Heading>technologies</Heading>
+          <Text>{post.frontmatter.technologies}</Text>
+        </Box>
+      </Flex>
       {
         renderAst(post.htmlAst)
       }
@@ -33,12 +49,15 @@ export default function PoemLayout({ data }) {
 }
 
 export const pageQuery = graphql`
-  query PoemByPath($path: String!) {
+  query ExperienceByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       htmlAst
       frontmatter {
         path
         title
+        time
+        location
+        technologies
       }
     }
   }

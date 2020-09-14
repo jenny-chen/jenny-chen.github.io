@@ -11,6 +11,9 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const readingLayout = path.resolve(`src/components/layouts/reading-layout.jsx`)
   const poemLayout = path.resolve(`src/components/layouts/poem-layout.jsx`)
+  const essayLayout = path.resolve(`src/components/layouts/essay-layout.jsx`)
+  const experienceLayout = path.resolve(`src/components/layouts/experience-layout.jsx`)
+  const projectLayout = path.resolve(`src/components/layouts/project-layout.jsx`)
 
   const result = await graphql(`
     {
@@ -49,6 +52,51 @@ exports.createPages = async ({ actions, graphql }) => {
         component: poemLayout,
         context: {}, 
       })  
+    }
+
+    if (node.fileAbsolutePath.includes("src/essays")) {
+      createPage({
+        path: node.frontmatter.path,
+        component: essayLayout,
+        context: {}, 
+      })  
+    }
+
+    if (node.fileAbsolutePath.includes("src/experiences")) {
+      createPage({
+        path: node.frontmatter.path,
+        component: experienceLayout,
+        context: {}, 
+      })  
+    }
+
+    if (node.fileAbsolutePath.includes("src/projects")) {
+      createPage({
+        path: node.frontmatter.path,
+        component: projectLayout,
+        context: {}, 
+      })  
+    }
+
+    if (node.fileAbsolutePath.includes("src/drafts")) {
+      var component = essayLayout
+      console.log(node.frontmatter.component)
+      switch(node.frontmatter.component) {
+        case "essayLayout":
+          component = essayLayout
+          break;
+        case "readingLayout":
+          component = readingLayout
+          break;
+        case "poemLayout":
+          component = poemLayout
+          break;
+      }
+      createPage({
+        path: node.frontmatter.path,
+        component: component,
+        context: {},
+      })
     }
   })
 }

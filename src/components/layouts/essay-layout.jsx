@@ -19,12 +19,13 @@ const renderAst = new rehypeReact({
   }
 }).Compiler
 
-export default function ReadingLayout({ data }) {
+export default function EssayLayout({ data }) {
   const { markdownRemark: post } = data
   return (
     <Layout>
       <SEO title={post.frontmatter.title} />
-      <Title><ExtLink href={post.frontmatter.goodreads}>{post.frontmatter.title}</ExtLink>{" by " + post.frontmatter.author}</Title>
+      <Title>{post.frontmatter.title}</Title>
+      <Text description>{post.frontmatter.description}</Text>
       <Heading>{post.frontmatter.date}</Heading>
       {
         renderAst(post.htmlAst)
@@ -34,15 +35,14 @@ export default function ReadingLayout({ data }) {
 }
 
 export const pageQuery = graphql`
-  query ReadingByPath($path: String!) {
+  query EssayByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       htmlAst
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path
-        author
         title
-        goodreads
+        description
       }
     }
   }

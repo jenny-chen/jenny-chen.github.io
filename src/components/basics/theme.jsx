@@ -1,12 +1,13 @@
 import React from "react"
 import { ThemeProvider } from "styled-components"
 
-const breakpoints = ["384px", "768px", "1024px"]
+const breakpoints = ["384px", "768px", "1024px", "2000px"]
 const theme = {
   breakpoints: {
     mobile: breakpoints[0],
     tablet: breakpoints[1],
     desktop: breakpoints[2],
+    widescreen: breakpoints[3],
   },
   colors: {
     black: "#16171A",
@@ -21,6 +22,7 @@ const theme = {
     mobile: `@media screen and (min-width: ${breakpoints[0]})`,
     tablet: `@media screen and (min-width: ${breakpoints[1]})`,
     desktop: `@media screen and (min-width: ${breakpoints[2]})`,
+    widescreen: `@media screen and (min-width: ${breakpoints[3]})`,
   }
 }
 

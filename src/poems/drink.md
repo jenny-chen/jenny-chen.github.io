@@ -1,10 +1,10 @@
 ---
-path: "/drink"
+path: "/poems/drink"
 title: "drink"
 ---
 
 one drink to be polite\
-five to make a deal\
+five to cut a deal\
 "Drink to your health!" reverberates\
 around the room as alcohol sloshes\
 in and out of glasses
