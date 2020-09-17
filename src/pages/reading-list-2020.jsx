@@ -48,7 +48,7 @@ export default function ReadingList2020() {
     {title: "Children of Time (Children of Time #1)", url: "https://www.goodreads.com/book/show/25499718-children-of-time"},
     {title: "Children of Ruin (Children of Time #2)", url: "https://www.goodreads.com/book/show/40376072-children-of-ruin"},
     {title: "The Best We Could Do", url: "https://www.goodreads.com/book/show/29936927-the-best-we-could-do"},
-    {titel: "Growth", url: "https://www.goodreads.com/book/show/44512537-growth"},
+    {title: "Growth", url: "https://www.goodreads.com/book/show/44512537-growth"},
   ]
   return (
     <Layout tab="Reading">
