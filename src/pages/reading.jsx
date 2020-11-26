@@ -36,11 +36,13 @@ export default function Reading() {
   ]
   const recFic = [
     {title: "Airborn", url: "https://www.goodreads.com/book/show/428042.Airborn"},
+    {title: "Breasts and Eggs", url: "https://www.goodreads.com/book/show/50736031-breasts-and-eggs"},
+    {title: "Children of Time", url: "https://www.goodreads.com/series/247630-children-of-time"},
+    {title: "Life of Pi", url: "https://www.goodreads.com/book/show/4214.Life_of_Pi"},
     {title: "The Long Way to a Small, Angry Planet", url: "https://www.goodreads.com/book/show/22733729-the-long-way-to-a-small-angry-planet"},
     {title: "The Luminaries", url: "https://www.goodreads.com/book/show/17333230-the-luminaries"},
     {title: "The Remains of the Day", url: "https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day"},
     {title: "The Three-Body Problem", url: "https://www.goodreads.com/book/show/20518872-the-three-body-problem"},
-    {title: "1Q84", url: "https://www.goodreads.com/book/show/10357575-1q84"}
   ]
   return (
     <Layout tab="Reading">
