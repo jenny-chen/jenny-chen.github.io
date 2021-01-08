@@ -42,7 +42,7 @@ const About = () => (
     <Flex boxWidth="32%" style={{ marginTop: "20px" }}>
       <Box>
         <Heading>current term</Heading>
-        <Text>2A school term at UWaterloo</Text>
+        <Text>2nd coop term at Synqrinus</Text>
       </Box>
 
       <Box>

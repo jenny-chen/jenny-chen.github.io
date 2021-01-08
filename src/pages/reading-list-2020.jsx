@@ -68,6 +68,12 @@ export default function ReadingList2020() {
     {title: "Solutions and Other Problems", url: "https://www.goodreads.com/book/show/51323365-solutions-and-other-problems"},
     {title: "Cloud Atlas", url: "https://www.goodreads.com/book/show/49628.Cloud_Atlas"},
     {title: "The Midnight Library", url: "https://www.goodreads.com/book/show/52578297-the-midnight-library"},
+    {title: "The Courage to Be Disliked", url: "https://www.goodreads.com/book/show/43306206-the-courage-to-be-disliked"},
+    {title: "Axiom's End", url: "https://www.goodreads.com/book/show/51171377-axiom-s-end"},
+    {title: "The Elephant Vanishes", url: "https://www.goodreads.com/book/show/9555.The_Elephant_Vanishs"},
+    {title: "When Breath Becomes Air", url: "https://www.goodreads.com/book/show/25899336-when-breath-becomes-air"},
+    {title: "The Long Earth", url: "https://www.goodreads.com/book/show/13147230-the-long-earth"},
+    {title: "Someone Who Will Love You in All Your Damaged Glory", url: "https://www.goodreads.com/book/show/41949311-someone-who-will-love-you-in-all-your-damaged-glory"},
   ]
   return (
     <Layout tab="Reading">
