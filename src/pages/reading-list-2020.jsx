@@ -33,7 +33,7 @@ export default function ReadingList2020() {
     {title: "Outliers", url: "https://www.goodreads.com/book/show/3228917-outliers"},
     {title: "Kitchen Confidential", url: "https://www.goodreads.com/book/show/33313.Kitchen_Confidential"},
     {title: "The Moment of Lift", url: "https://www.goodreads.com/book/show/40776644-the-moment-of-lift"},
-    {title: "Player Piano", url: "https://www.goodreads.com/book/show/9597.Player_Piano"},
+    {title: "Player Piano*", url: "https://www.goodreads.com/book/show/9597.Player_Piano"},
     {title: "Mere Christianity", url: "https://www.goodreads.com/book/show/40792344-mere-christianity"},
     {title: "So You Want to Talk About Race", url: "https://www.goodreads.com/book/show/35099718-so-you-want-to-talk-about-race"},
     {title: "Pachinko", url: "https://www.goodreads.com/book/show/34051011-pachinko"},
