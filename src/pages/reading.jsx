@@ -5,6 +5,8 @@ import Layout from "../components/layouts/layout"
 import SEO from "../components/seo"
 import PageList from "../components/page-list"
 import Reading2020Graph from "../components/graphs/reading-2020"
+import Reading2021Graph from "../components/graphs/reading-2021"
+import ReadingWords2020Graph from "../components/graphs/reading-words-2020"
 
 import {
   Box,
@@ -23,6 +25,10 @@ const RecHeading = styled(Heading)`
   ${({ theme }) => `${theme.mediaQueries.tablet} {
     margin-top: 10px;
   }`}
+`
+
+const PaddedLink = styled(Link)`
+  margin-right: 20px;
 `
 
 export default function Reading() {
@@ -51,8 +57,12 @@ export default function Reading() {
       <Text description>What I talk about when I talk about books</Text>
 
       <Reading2020Graph />
+      {/* <ReadingWords2020Graph /> */}
 
-      <Text><Link td="none" to="/reading-list-2020">Reading List 2020</Link></Text>
+      <Text>
+        <PaddedLink td="none" to="/reading-list-2021">Reading List 2021</PaddedLink>
+        <PaddedLink td="none" to="/reading-list-2020">Reading List 2020</PaddedLink>
+      </Text>
       <br />
 
       <Section>

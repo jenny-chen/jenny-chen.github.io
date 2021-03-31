@@ -2,6 +2,7 @@ import React from "react"
 
 import Layout from "../components/layouts/layout"
 import SEO from "../components/seo"
+import Reading2021Graph from "../components/graphs/reading-2021"
 // import ReadingWords2020Graph from "../components/graphs/reading-words-2020"
 
 import {
@@ -16,6 +17,29 @@ import {
 export default function ReadingList2021() {
   const books = [
     {title: "The Promised Land", url: "https://www.goodreads.com/book/show/55976344-the-promised-land"},
+    {title: "Calypso", url: "https://www.goodreads.com/book/show/38348476-calypso"},
+    {title: "Astrophysics for People in a Hurry", url: "https://www.goodreads.com/book/show/32191710-astrophysics-for-people-in-a-hurry"},
+    {title: "To the Lighthouse", url: "https://www.goodreads.com/book/show/59716.To_the_Lighthouse"},
+    {title: "Less", url: "https://www.goodreads.com/book/show/39927096-less"},
+    {title: "Wishful Drinking", url: "https://www.goodreads.com/book/show/4961048-wishful-drinking"},
+    {title: "Hitchhiker's Guide to the Galaxy", url: "https://www.goodreads.com/book/show/386162.The_Hitchhiker_s_Guide_to_the_Galaxy"},
+    {title: "When", url: "https://www.goodreads.com/book/show/35412097-when"},
+    {title: "Behind the Beautiful Forevers", url: "https://www.goodreads.com/book/show/11869272-behind-the-beautiful-forevers"},
+    {title: "The Gene", url: "https://www.goodreads.com/book/show/27276428-the-gene"},
+    {title: "Eat a Peach", url: "https://www.goodreads.com/book/show/51700803-eat-a-peach"},
+    {title: "A Pale View of Hills", url: "https://www.goodreads.com/book/show/28920.A_Pale_View_of_Hills"},
+    {title: "The Hate U Give", url: "https://www.goodreads.com/book/show/32075671-the-hate-u-give"},
+    {title: "Everything I Never Told You", url: "https://www.goodreads.com/book/show/18693763-everything-i-never-told-you"},
+    {title: "The Nickel Boys", url: "https://www.goodreads.com/book/show/42270835-the-nickel-boys"},
+    {title: "Ms Ice Sandwich", url: "https://www.goodreads.com/en/book/show/32927264-ms-ice-sandwich"},
+    {title: "All The Light We Cannot See", url: "https://www.goodreads.com/book/show/18143977-all-the-light-we-cannot-see"},
+    {title: "10% Happier", url: "https://www.goodreads.com/book/show/18505796-10-happier"},
+    {title: "Caste", url: "https://www.goodreads.com/en/book/show/51152447-caste"},
+    {title: "The Goldfinch", url: "https://www.goodreads.com/book/show/17333223-the-goldfinch"},
+    {title: "How To Avoid a Climate Disaster", url: "https://www.goodreads.com/book/show/52275335-how-to-avoid-a-climate-disaster"},
+    {title: "Catch-22", url: "https://www.goodreads.com/book/show/168668.Catch_22"},
+    {title: "Station Eleven", url: "https://www.goodreads.com/book/show/20170404-station-eleven"},
+    {title: "Klara and the Sun", url: "https://www.goodreads.com/book/show/54120408-klara-and-the-sun"},
   ]
   return (
     <Layout tab="Reading">
@@ -25,6 +49,7 @@ export default function ReadingList2021() {
 
       <Flex>
         <Box width={{ _: "100%", widescreen: "100%" }}>
+          <Reading2021Graph />
           <OList>
             {
               books.map((book, i) => {

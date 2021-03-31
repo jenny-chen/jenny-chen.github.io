@@ -124,7 +124,7 @@ class Reading2020Graph extends Component {
           .attr("cy", yRangePoints[selectedData.books])
         focusText
           .html(`${mouseMonth} - ${selectedData.books} ${selectedData.books > 1 ? "books" : "book"}`)
-          .attr("x", i >= domain.length-2 ? rangePoints[i]-140: rangePoints[i]+15)
+          .attr("x", i >= domain.length-2 ? rangePoints[i]-140 : rangePoints[i]+15)
           .attr("y", yRangePoints[selectedData.books])
       }
 

@@ -2,14 +2,14 @@ import React, { Component } from "react"
 import * as d3 from "d3"
 import "./graph-css.css"
 
-class ReadingWords2020Graph extends Component {
+class Reading2021Graph extends Component {
   componentDidMount() {
     this.drawChart();
     window.addEventListener("resize", this.drawChart.bind(this));
   }
   
   drawChart() {
-    const div = d3.select('#wordsscatter');
+    const div = d3.select('#scatter');
     div.select('svg').remove();
 
     const height = +div.node().offsetHeight;
@@ -25,10 +25,10 @@ class ReadingWords2020Graph extends Component {
       const innerWidth = width - margin.left - margin.right;
       const innerHeight = height - margin.top - margin.bottom;
 
-      const yAxisLabel = '# of words read'
+      const yAxisLabel = '# of books read'
 
       const yScale = d3.scaleLinear()
-        .domain([0, d3.max(data, d => d.words)])
+        .domain([0, d3.max(data, d => d.books)])
         .range([innerHeight, 0])
         .nice();
 
@@ -43,12 +43,12 @@ class ReadingWords2020Graph extends Component {
       const yAxisG = g.append('g')
         .call(d3.axisLeft(yScale)
           .ticks(7)
-          .tickFormat(d3.format('.1s')));
+          .tickFormat(d3.format('d')));
 
       yAxisG.append('text')
         .attr('class', 'axis-label')
         .attr('fill', 'black')
-        .attr('y', -40)
+        .attr('y', -35)
         .attr('x', -innerHeight / 2)
         .attr('transform', 'rotate(-90)')
         .style('text-anchor', 'middle')
@@ -63,7 +63,7 @@ class ReadingWords2020Graph extends Component {
       // line chart
       const lineGenerator = d3.line()
         .x(d => xScale(d.month))
-        .y(d => yScale(d.words));
+        .y(d => yScale(d.books));
 
       g.append('path')
         .attr('class', 'line-path')
@@ -73,13 +73,13 @@ class ReadingWords2020Graph extends Component {
       const areaGenerator = d3.area()
         .x(d => xScale(d.month))
         .y0(innerHeight)
-        .y1(d => yScale(d.words));
+        .y1(d => yScale(d.books));
 
       g.append('path')
         .attr('class', 'area-path')
         .attr('d', areaGenerator(data));
 
-      //interactive label stuff
+      // interactive label stuff
       const focus = g.append('circle')
           .style("fill", "steelblue")
           .attr("stroke", "steelblue")
@@ -121,11 +121,11 @@ class ReadingWords2020Graph extends Component {
         var selectedData = data[i]
         focus
           .attr("cx", rangePoints[i])
-          .attr("cy", yRangePoints[selectedData.words])
+          .attr("cy", yRangePoints[selectedData.books])
         focusText
-          .html(`${mouseMonth} - ${selectedData.words} ${selectedData.words> 1 ? "words" : "word"}`)
-          .attr("x", i >= domain.length-2 ? rangePoints[i]-140 : rangePoints[i]+15)
-          .attr("y", yRangePoints[selectedData.words])
+          .html(`${mouseMonth} - ${selectedData.books} ${selectedData.books > 1 ? "books" : "book"}`)
+          .attr("x", (i >= domain.length-2 && domain.length > 2) || i >= domain.length-1 ? rangePoints[i]-140 : rangePoints[i]+15)
+          .attr("y", yRangePoints[selectedData.books])
       }
 
       function mouseout() {
@@ -135,9 +135,9 @@ class ReadingWords2020Graph extends Component {
 
     };
 
-    d3.csv("/data/reading-words-2020.csv").then(data => {
+    d3.csv("/data/reading-2021.csv").then(data => {
       data.forEach(d => {
-        d.words = +d.words;
+        d.books = +d.books;
       });
       render(data);
     });
@@ -145,9 +145,9 @@ class ReadingWords2020Graph extends Component {
 
   render() {
     return (
-      <div id="wordsscatter" className="graphDiv"></div>
+      <div id="scatter" className="hide-graph graphDiv"></div>
     )
   }
 }
 
-export default ReadingWords2020Graph
+export default Reading2021Graph

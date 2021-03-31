@@ -2,6 +2,7 @@ import React from "react"
 
 import Layout from "../components/layouts/layout"
 import SEO from "../components/seo"
+import Reading2020Graph from "../components/graphs/reading-2020"
 // import ReadingWords2020Graph from "../components/graphs/reading-words-2020"
 
 import {
@@ -83,9 +84,9 @@ export default function ReadingList2020() {
 
       <Flex>
         <Box width={{ _: "100%", widescreen: "100%" }}>
+          <Reading2020Graph />
           <OList>
-            {
-              books.map((book, i) => {
+            {books.map((book, i) => {
                 return (
                   <li key={i}>
                     <Text>
@@ -98,8 +99,7 @@ export default function ReadingList2020() {
                     </Text>
                   </li>
                 )
-              })
-            }
+              })}
           </OList>
 
           <br />

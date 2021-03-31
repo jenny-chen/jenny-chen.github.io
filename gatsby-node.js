@@ -50,32 +50,32 @@ exports.createPages = async ({ actions, graphql }) => {
       createPage({
         path: node.frontmatter.path,
         component: poemLayout,
-        context: {}, 
-      })  
+        context: {},
+      })
     }
 
     if (node.fileAbsolutePath.includes("src/essays")) {
       createPage({
         path: node.frontmatter.path,
         component: essayLayout,
-        context: {}, 
-      })  
+        context: {},
+      })
     }
 
     if (node.fileAbsolutePath.includes("src/experiences")) {
       createPage({
         path: node.frontmatter.path,
         component: experienceLayout,
-        context: {}, 
-      })  
+        context: {},
+      })
     }
 
     if (node.fileAbsolutePath.includes("src/projects")) {
       createPage({
         path: node.frontmatter.path,
         component: projectLayout,
-        context: {}, 
-      })  
+        context: {},
+      })
     }
 
     if (node.fileAbsolutePath.includes("src/drafts")) {
