@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import styled from "styled-components"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
@@ -12,15 +11,9 @@ import { japanPhotoInformation } from "../images/japan/info"
 
 import {
   Box,
-  ExtLink,
   Flex,
-  Heading,
-  Link,
-  Section,
-  Subtitle,
   Text,
   Title,
-  UList
 } from "../components/basics"
 
 export default function Japan({ data }) {
@@ -29,7 +22,6 @@ export default function Japan({ data }) {
   const [openPhoto, setOpenPhoto] = useState({});
   const [modalHidden, setModalHidden] = useState(true);
 
-  var location = {"loc": "Japan"}
   var photos = {}
   var allPhotos = data.allFile.edges
 
@@ -43,10 +35,6 @@ export default function Japan({ data }) {
       photos[place] = [{name: name,
                         image: getImage(allPhotos[i].node.childImageSharp)}]
     }
-  }
-
-  const openModal = () => {
-    
   }
 
   return (

@@ -91,7 +91,7 @@ class JapanMap extends Component {
           }
         })
         .on("mouseout", function(e) {
-          if (e.properties.nam == selected) {
+          if (e.properties.nam === selected) {
             d3.select(this).style("fill", "#334e70")
           } else if (visited.includes(e.properties.nam)) {
             d3.select(this).style("fill", visitedColor)

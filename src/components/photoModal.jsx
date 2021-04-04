@@ -4,15 +4,9 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 import {
   Box,
-  ExtLink,
   Flex,
   Heading,
-  Link,
-  Section,
-  Subtitle,
   Text,
-  Title,
-  UList
 } from "../components/basics"
 
 const Modal = styled(Box)`
