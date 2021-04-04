@@ -1,7 +1,7 @@
   export const japanPhotoInformation = {
     "tokyo_fear": {date: "2019-08-30",
                    location: "Chuo City, Tokyo",
-      description: ["After a meal of delicious Japanese BBQ, I was forced against my will to eat a round of offal.", "I had tried motsunabe the day before and knew that offal wasn't for me, thus my look of horror."]},
+      description: ["After a meal of delicious Japanese BBQ, I was forced against my will to eat a round of offal.", "I had tried motsunabe the day before and already knew that offal wasn't for me, thus my look of horror."]},
     "tokyo_ginza_sushi": {date: "2019-08-21",
                           location: "Kyubey, Chuo City, Tokyo",
                           description: ["Sushi chef at work during our lunch at Kyubey in Ginza."]},
