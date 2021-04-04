@@ -35,7 +35,7 @@
                    location: "Maruyama Park, Kyoto",
                    description: ["A pair of sisters in the wild.", "I remember being a little nervous I would tip myself backwards."]},
     "kyoto_street": {date: "2019-08-24",
-                     location: "Shimogyo Ward, Kyoto",
+                     location: "Shimogyo, Kyoto",
                      description: ["I have a strange affinity for the streets of Japan.", "Maybe it's the architecture, maybe it's the anime vibes. I guess we'll never know."]},
     "kyoto_train": {date: "2019-08-25",
                     location: "Kyoto Station",

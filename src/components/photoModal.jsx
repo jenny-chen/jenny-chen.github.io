@@ -27,7 +27,11 @@ const Modal = styled(Box)`
 const ModalContent = styled(Box)`
   width: 50%;
   background-color: white;
-  padding: 50px;
+  padding: 35px;
+
+  ${({ theme }) => `${theme.mediaQueries.tablet} {
+    padding: 50px;
+  }`}
 `
 
 export default function PhotoModal(props) {
