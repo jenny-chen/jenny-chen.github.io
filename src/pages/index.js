@@ -74,7 +74,7 @@ const IndexPage = () => {
         <Text>
           To be honest, I'm not sure what to do with this empty space yet. If you have a suggestion, I'd love to <ExtLink href="mailto:jenny.chen1@uwaterloo.ca">hear it</ExtLink>!
         </Text>
-        <Text>In the meantime, I just updated this site with some memories from my <Link to="/japan">2019 trip to Japan</Link> and would love for you to check it out!</Text>
+        <Text>In the meantime, I just updated this site with some memories from my <Link to="/japan">2019 trip to Japan</Link> and would love for you to check it out :D</Text>
       </Box>
     </Layout>
   )
