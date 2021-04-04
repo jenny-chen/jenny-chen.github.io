@@ -25,7 +25,7 @@ export default function ExperienceLayout({ data }) {
     <Layout tab={post.frontmatter.title}>
       <SEO title={post.frontmatter.title} />
       <Title>{post.frontmatter.title}</Title>
-      <Flex boxWidth={{ _: "100%", tablet: "32%" }} style={{ marginTop: "20px" }}>
+      <Flex boxWidth="32%" style={{ marginTop: "20px" }}>
         <Box>
           <Heading>time</Heading>
           <Text>{post.frontmatter.time}</Text>

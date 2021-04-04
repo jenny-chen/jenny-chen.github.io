@@ -26,7 +26,7 @@ export default function PageList({ section }) {
                 id
                 frontmatter {
                   title
-                  date(formatString: "DD-MM-YYYY")
+                  date(formatString: "YYYY-MM-DD")
                   path
                 }
               }
@@ -43,7 +43,7 @@ export default function PageList({ section }) {
                 id
                 frontmatter {
                   title
-                  date(formatString: "DD-MM-YYYY")
+                  date(formatString: "YYYY-MM-DD")
                   path
                 }
               }
@@ -60,7 +60,7 @@ export default function PageList({ section }) {
                 id
                 frontmatter {
                   title
-                  date(formatString: "DD-MM-YYYY")
+                  date(formatString: "YYYY-MM-DD")
                   path
                 }
               }

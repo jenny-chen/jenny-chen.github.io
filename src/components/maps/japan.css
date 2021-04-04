@@ -1,0 +1,26 @@
+/* VARIABLES */
+:root {
+  --monoFonts: "SF Mono", "Menlo", "Source Pro Code", monospace;
+  --serifFonts: "Georgia", serif, "system-ui";
+}
+
+
+/* MAP CSS */
+
+.mapDiv {
+  width: 100%;
+  height: 600px;
+  margin-bottom: 2em;
+}
+
+#japan-labels {
+  position: absolute;
+  margin-left: 10%;
+  margin-top: 5%;
+  font-size: 1.5em;
+  font-family: var(--serifFonts);
+}
+
+path {
+  cursor: pointer;
+}

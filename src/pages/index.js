@@ -21,6 +21,9 @@ const PageLinks = ({ pages, paths, tab }) => {
 }
 
 const IndexPage = () => {
+  const travelsPages = ["Japan"]
+  const travelsPaths =["/japan"]
+
   const experiencesPages = ["Jewlr", "HelpingHands", "ProjectCSGirls"]
   const experiencesPaths = ["/jewlr", "/helpinghands", "/projectcsgirls"]
 
@@ -40,6 +43,11 @@ const IndexPage = () => {
 
         <Text>
           Check out my <Link to={resume}>resume</Link>.
+        </Text>
+
+        <Heading>travels</Heading>
+        <Text>
+          <PageLinks pages={travelsPages} paths={travelsPaths} />
         </Text>
 
         <Heading>experiences</Heading>

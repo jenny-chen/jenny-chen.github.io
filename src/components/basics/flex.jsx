@@ -8,6 +8,7 @@ const Flex = styled.div`
 
   ${({ theme }) => `${theme.mediaQueries.tablet} {
     display: flex;
+    flex-wrap: wrap;
   }`}
    
   ${props => props.boxWidth && css`
@@ -15,7 +16,7 @@ const Flex = styled.div`
       width: 100%;
 
       ${({ theme }) => `${theme.mediaQueries.tablet} {
-        width: ${props => props.boxWidth};
+        width: ${props.boxWidth};
       }`}
     }
   `}

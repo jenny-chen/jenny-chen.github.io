@@ -8,6 +8,7 @@ module.exports = {
   plugins: [
     '@babel/plugin-proposal-export-default-from',
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
