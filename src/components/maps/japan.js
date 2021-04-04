@@ -76,7 +76,9 @@ class JapanMap extends Component {
         .attr("stroke", "black")
         .style("stroke-width", "0.6")
         .style("fill", function(e) {
-          if (visited.includes(e.properties.nam)) {
+          if (selected === e.properties.nam) {
+            return "#334e70"
+          } else if (visited.includes(e.properties.nam)) {
             return visitedColor
           } else {
             return nonVisitedColor
