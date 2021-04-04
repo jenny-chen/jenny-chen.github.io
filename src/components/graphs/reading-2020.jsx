@@ -139,7 +139,7 @@ class Reading2020Graph extends Component {
       data.forEach(d => {
         d.books = +d.books;
       });
-      render(data);
+     render(data);
     });
   };
 

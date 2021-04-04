@@ -40,6 +40,7 @@ export default function ReadingList2021() {
     {title: "Catch-22", url: "https://www.goodreads.com/book/show/168668.Catch_22"},
     {title: "Station Eleven", url: "https://www.goodreads.com/book/show/20170404-station-eleven"},
     {title: "Klara and the Sun", url: "https://www.goodreads.com/book/show/54120408-klara-and-the-sun"},
+    {title: "Dark Matter", url: "https://www.goodreads.com/book/show/27833670-dark-matter"},
   ]
   return (
     <Layout tab="Reading">
