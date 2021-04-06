@@ -22,7 +22,7 @@ const renderAst = new rehypeReact({
 export default function ReadingLayout({ data }) {
   const { markdownRemark: post } = data
   return (
-    <Layout>
+    <Layout tab="Reading">
       <SEO title={post.frontmatter.title} />
       <Title><ExtLink href={post.frontmatter.goodreads}>{post.frontmatter.title}</ExtLink>{" by " + post.frontmatter.author}</Title>
       <Heading>{post.frontmatter.date}</Heading>

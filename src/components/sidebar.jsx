@@ -37,8 +37,8 @@ const PageLinks = ({ pages, paths, tab }) => {
 }
 
 const Sidebar = ({ page, tab }) => {
-  const pages = ["About", "Reading"]
-  const paths = ["/about", "/reading"]
+  const pages = ["About", "Reading", "Writing"]
+  const paths = ["/about", "/reading", "/writing"]
 
   const travelsPages = ["Japan"]
   const travelsPaths =["/japan"]

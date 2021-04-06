@@ -22,7 +22,7 @@ const renderAst = new rehypeReact({
 export default function PoemLayout({ data }) {
   const { markdownRemark: post } = data
   return (
-    <Layout>
+    <Layout tab="Writing">
       <SEO title={post.frontmatter.title} />
       <Title>{post.frontmatter.title}</Title>
       {
