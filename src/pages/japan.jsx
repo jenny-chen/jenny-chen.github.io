@@ -18,6 +18,8 @@ import {
 
 export default function Japan({ data }) {
 
+  console.log(data)
+
   const [loc, setLoc] = useState("Japan");
   const [openPhoto, setOpenPhoto] = useState({});
   const [modalHidden, setModalHidden] = useState(true);

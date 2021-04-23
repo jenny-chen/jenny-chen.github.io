@@ -4,4 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
 
+import "./src/components/basics/prism-theme.css"
+
 // You can delete this file if you're not using it
