@@ -21,7 +21,6 @@ const renderAst = new rehypeReact({
 
 export default function EssayLayout({ data }) {
   const { markdownRemark: post } = data
-  console.log("post: ", post.frontmatter.contents)
   return (
     <Layout tab="Writing">
       <SEO title={post.frontmatter.title} />

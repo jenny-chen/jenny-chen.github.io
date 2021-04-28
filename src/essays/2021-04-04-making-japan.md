@@ -187,7 +187,7 @@ The `setLoc` function could then be used in the `onClick` function from the map 
 
 ## images <a name="images"></a>
 
-Though I had initially intended this to be a stand-alone web app, I decided to stick with Gatsby to start it. There isn't any dynamic parts to the site, so Gatsby's static site would suit it perfectly.
+Though I had initially intended this to be stand-alone and separate from the rest of my website, I decided to stick with Gatsby as a base. There aren't any dynamic parts to the site, so Gatsby's static site would suit it perfectly.
 
 As well, Gatsby's integration with GraphQL and its [Gatsby-Plugin-Image](https://www.gatsbyjs.com/plugins/gatsby-plugin-image/) aid greatly in making the workflow streamlined.
 
@@ -196,7 +196,6 @@ With GraphQL, I can make a query that will return all the files with a filetype 
 ```jsx
 export const pageQuery = graphql`
   query JapanPhotos {
-    // this targets all the jpg|jpeg|png in the folder ./images/japan
     allFile(filter: {extension: {regex: "/(jpg)|(jpeg)|(png)/"}, dir: {regex: "/images/japan/"}}) {
       edges {
         node {
@@ -215,7 +214,7 @@ export const pageQuery = graphql`
 `
 ```
 
-This returns an object like this:
+This query searches all the files, returning only the ones that are of the extensions `jpg`, `jpeg`, or `png` and in the folder `/images/japan/`. This returns an object like this:
 
 ```jsx
 Object
@@ -229,7 +228,7 @@ Object
       ...
 ```
 
-With the data retrieved from the query, I can then sort the images by their location into an object (the image names are all prefixed with the location where they were taken).
+With the data retrieved from the query, I can then sort the images by their location into an object (the image names are all prefixed with the location where they were taken). Though this worked well for me this time, it was only because I had documented closely where I visited that Summer. In the case that I wasn't so meticulous, I would've needed to perhaps look at metadata and see where all the pictures were taken. This would be something good to look into for the future so as to reduce the amount of manual work needed in organizing.
 
 ```jsx
 var photos = {}
@@ -270,13 +269,15 @@ And display them depending on what location is selected:
 </Flex>
 ```
 
+As seen above, Gatsby's plugin does a few things to make the process of displaying images easier.
+
 ### extra information - data storage
 
 Still I wanted to show more information past just the visual memories. I wanted the ability to get little blurbs relating to each picture and location.
 
-Unfortunately, I knew that this section would never be able to be truly scalable. I wanted to personalize each and every picture with its own blurb, and that meant I had to write out a separate description for each one and match them up with the picture using some sort of id or name. It was likely going to tedious writing everything out so I wanted something simple that would do the job.
+Unfortunately, I knew that this section couldn't be automated- it would always be a pretty long process. I wanted to personalize each and every picture with its own blurb, and that meant I had to write out a separate description for each one and match them up with the picture using some sort of id or name. It was likely going to be tedious writing everything out so I wanted something simple that would do the job.
 
-I ended up just going with just a JS object storing the matching photo name, location, date, and a short description. I stored everything as a string except for the description. For some of the photos I wanted slightly longer blurbs that included newlines. In order to incorporate newlines, I stored each separate "paragraph" of the description into a array, which would allow me later to iterate over them, generating html components for each one. An alternative would have been to insert newline symbols and then parse the string later when generating content. That would make things harder to edit later on though, if descriptions became very long, symbols could easily get lost or missed.
+I ended up just going with just a JS object storing the matching photo name, location, date, and a short description. I stored everything as a string except for the description. For some of the photos I wanted slightly longer blurbs that included newlines. In order to incorporate newlines, I stored each separate "paragraph" of the description into a array, which would allow me later to iterate over them, generating html components for each one. An alternative would have been to insert newline symbols and then parse the string later when generating content. I think that would make things harder to edit later on though, if descriptions became very long, symbols could easily get lost or missed.
 
 This is still far from the best solution for associating information with the images however. The only way to check for which description matches with which image is to do a check on their names. This requires a lot of manual work in naming them and then later on if any bugs come up. It's fine for now considering the scope is relatively small, but a better solution for the general case would be to hold all the data together, the description along with the images. Parsing of the image names could also be done in order to reduce the number of extra fields we have.
 
@@ -286,13 +287,14 @@ This is still far from the best solution for associating information with the im
 
 This feature was the one that came with the most choices. There are a lot of different ways to display information visually and also lots of ways to store that information. Though not a designer, I nevertheless had to come up with a few different designs.
 
-The first one was to simulate a rotation of the image and show the information on its backside. 
+The first one was to simulate a rotation of the image and show the information on its backside. It definitely would look cool; animations are all the rage these days, especially ones that simulate real life objects.
 I decided against this one as I wanted to keep the image on screen while showing the description so as to give the user context while they read.
 
 The second idea was to have the description come up next to the image, shifting the other images into a different alignment.
 I decided against this one as well. The shifting of the elements simply seemed too messy; I wanted to keep the gallery feeling of the images.
 
-The third (and final) idea was to use a modal. Modals are typically used to draw the user's full attention to a specific element or component. Usually I dislike modals for this reason, it interrupts whatever else was current happening, forcing the user to contend with whatever the modal is presenting. However, in this scenario, that's exactly what I wanted. I would be able to keep the photo up to provide context, not disrupt the alignment of the other photos and keep the user's full attention.
+The third (and final) idea was to use a modal. Modals are typically used to draw the user's full attention to a specific element or component.
+Usually I dislike modals for this reason, it interrupts whatever else was current happening, forcing the user to contend with whatever the modal is presenting. However, in this scenario, that's exactly what I wanted. I would be able to keep the photo up to provide context, not disrupt the alignment of the other photos and keep the user's full attention.
 
 Another component was made, a general one that would be hidden and filled depending on the photo clicked.
 
@@ -347,4 +349,6 @@ Similar methods as before were employed to allow the state to track when the mod
 
 In the end, I think there are a number of things I'd like to change up for the next trip I decide to document. For one, the choice to use a library to handle the images did indeed streamline the processs a little bit, but it also took away some of the agency I had in manipulating the images however I wanted. I waould probably want to do it from scratch the next time around.
 
-As well, 
+In terms of the content, I found that I really enjoyed working with D3 in this manner. I've created small graphs in the past to display statistics such as my reading habits for the year, but nothing intensive. Even though this wasn't a particularly intensive project, I think it's given me motivation to continue forward with the content. 
+
+Furthermore, I didn't really consider using anything other than D3 for this project because of its reputation as the premier web data visualization library. Many newer libraries are either built off of D3 or try to act as simplified versions of it. But as I've continued to read more, it seems a lot of people are beginning to move away from D3. (Ex. [Paul Sweeney - Why I no longer use d3.js](https://medium.com/@PepsRyuu/why-i-no-longer-use-d3-js-b8288f306c9a)) I'll have to look a little deeper at my actual goals and whether or not D3 will always be the best library to go with.
