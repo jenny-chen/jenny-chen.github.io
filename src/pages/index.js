@@ -75,7 +75,7 @@ const IndexPage = () => {
           To be honest, I'm not sure what to do with this empty space yet. If you have a suggestion, I'd love to <ExtLink href="mailto:jenny.chen1@uwaterloo.ca">hear it</ExtLink>!
         </Text>
         <Text>
-          I'm in the process of designing a new personal website, but this current layout is inspired by <ExtLink href="https://willium.com"/>William Strimling</ExtLink>.
+          I'm in the process of designing a new personal site, but this current layout is inspired by <ExtLink href="https://willium.com">William Strimling</ExtLink>.
         </Text>
         <Text>In the meantime, I just updated this site with some memories from my <Link to="/japan">2019 trip to Japan</Link> and would love for you to see :D</Text>
       </Box>
