@@ -3,41 +3,31 @@ path: "/writing/visualizing-japan"
 date: 2021-04-04
 title: "Visualizing Japan"
 description: "using D3 to map my 2019 trip to Japan"
-contents: ["background", "planning", "map rendering", "images"]
+contents: ["background", "planning", "map rendering", "passing props", "images", "final thoughts"]
 ---
-
-- exploration + research
-- displaying map
-- connecting map component back to main page and showing photos
-- click photo for modal
-- connecting back concepts that i learned maybe with stuff from work; passing props from child to parent? functional language at work, kinda similar mindset to only having data flow in one direction in order to minimize complexity
-
-links: 
-https://www.d3indepth.com/geographic/
-https://medium.com/@mbostock/command-line-cartography-part-1-897aa8f8ca2co
-https://gist.github.com/osoken/b8e5859295757bb2ec5b#file-japan-topojson
-https://bl.ocks.org/d3indepth/f7ece0ab9a3df06a8cecd2c0e33e54ef
 
 ## background <a name="background"></a>
 
-Ever since quarantine started back in March 2020, I’ve been looking for ways to keep myself occupied. I had been meaning to work on my personal website for a while, and being stuck at home for a few months was the perfect time for it. Even my project at work at the time revolved around data visualization. I took it as a sign to finally dive a little further into [D3](https://d3js.org/).
+Ever since quarantine started back in March 2020, I’ve been looking for ways to keep myself occupied. I had been meaning to work on my personal website for a while, and being stuck at home for a few months was the perfect time for it. Even my project at work at the time revolved around data visualization (creating a data vis dashboard for the internal team and clients). I took it as a sign to finally dive a little further into the geographic capabilities of [D3](https://d3js.org/).
 
 
 ## planning <a name="planning"></a>
 
 The first step was to figure out exactly what I wanted. I started off with a fairly minimal list:
-- a interactive map to show where I visited
+- an interactive map to show where I visited
 - a way to display memories/photos from my time in each location
 - another layer to display extra information relating to each photo
 
-Next step was to familiarize myself with D3 and it's geographic rendering capabilities. To do this, I consulted a number of online articles ([d3indepth](https://www.d3indepth.com/geographic/) and Mike Bostock's [Command Line Cartography](https://medium.com/@mbostock/command-line-cartography-part-1-897aa8f8ca2c) are two good ones) and read through pages and pages of documentation.
+The next step was to familiarize myself with D3 and its geographic rendering capabilities. To do this, I consulted a number of online articles ([d3indepth](https://www.d3indepth.com/geographic/) and Mike Bostock's [Command Line Cartography](https://medium.com/@mbostock/command-line-cartography-part-1-897aa8f8ca2c) are two good ones) and read through pages and pages of documentation.
+
+I couldn't find a comprehensive up-to-date tutorial, so I more or less stitched together steps from a variety of sources.
 
 
 ### GeoJSON vs TopoJSON
 
 Through reading, I found that there are two main ways of encoding the geographic data, GeoJSON and TopoJSON, both extensions of the JSON file format. GeoJSON is generally more widely supported and works by encoding the geographic data as a series of `features` through coordinates (pairs of longitudes and latitudes). TopoJSON emerged as an extension of GeoJSON, capable of encoding the topography as well as the shape. Geometries in TopoJSON are represented through line segments that they call "arcs", essentially just series of points. The difference here is that arcs are can be shared and referenced by multiple shapes, thus reducing redundancy and decreasing file sizes. For example, given a country-country border, that border would be created twice in the GeoJSON file, while a single shared arc would take care of it in TopoJSON. The downside is that TopoJSON is a slightly more complex file to handle and requires an extra step to be taken later when rendering.
 
-For my map, I decided to go with TopoJSON. Though I didn't have any need for the topography function of it, Japan is a country dense with lines; there are lots of prefectures in Japan and TopoJSON is instrumental in reducing the overlap and keeping the filesize relatively small. D3 works well with both GeoJSON and TopoJSON so there isn't anything to worry about on that end.
+For my map, I decided to go with TopoJSON. Though I didn't have any need for the topography function of it, Japan is a country dense with lines; there are lots of prefectures in Japan and TopoJSON is instrumental in reducing the overlap and keeping the file size relatively small. D3 works well with both GeoJSON and TopoJSON so there isn't anything to worry about on that end.
 
 A snippet of the TopoJSON file looks something like this:
 
@@ -126,7 +116,7 @@ d3.json("/json/topojapan.json").then(data => {
  
 This would display the bare minimum of my map, but I also wanted to be able to interact with it, so I would need to add `onClick` and `onHover` events. This can be done fairly easily by building on D3's generated path.
 
-At this point, it was also time to think about how I wanted to store and move data around between components. I didn't have a large amount of data; I had only visited a handful of prefectures and for each location, only another handful of pictures to display. I decided to stick to the basics and just create an array to hold the names of the each location I had been to.
+At this point, it was also time to think about how I wanted to store and move data around between components. I didn't have a large amount of data; I had only visited a handful of prefectures and for each location, only another handful of pictures to display. I decided to stick to the basics and just create an array to hold the names of each location I had been to.
 
 ```jsx
 const visited = ["Tokyo To", "Kyoto Fu", "Osaka Fu", "Fukuoka Ken", "Nara Ken", "Aichi Ken"]
@@ -174,7 +164,7 @@ The next part was to have what the user selected on the map match up to which pi
 
 ## passing props <a name="passing props"></a>
 
-A big part of React's philosophy is to have data flow in only one direction. This means props should only be passed down from parents to children and never the other way around. There are really two ways around this problem. One is to use a global state manager like Redux, and the other is "lift the state up".
+A big part of React's philosophy is to have data flow in only one direction. This means props should only be passed down from parents to children and never the other way around. There are essentially two ways around this problem. One is to use a global state manager like Redux, and the other is "lift the state up".
 
 Again, the amount of data I was dealing with was not large. I wanted to keep this as simple as possible so I went with the latter option. To "lift the state up" means to have the child's state actually reside in the parent component. The parent then provides the child a function to change the state value as another prop.
 
@@ -269,34 +259,35 @@ And display them depending on what location is selected:
 </Flex>
 ```
 
-As seen above, Gatsby's plugin does a few things to make the process of displaying images easier.
+As seen above, Gatsby's plugin does a few things to make the process of displaying images easier, which made me decide to use it instead of creating my own image component.
+
+I had already made the choice to use Gatsby and GraphQL so using this plugin was a natural choice since it plays so well with GraphQL. `GatsbyImage` can directly make use of the data types the query returns, so there would be no need to go searching through files with the image name. Furthermore, it has some accessibility features that I thought would be good to use. Alternative text is a common one, but it also provides a placeholder before images fully load in. With how powerful most computers these days are, these placeholders are rarely even seen, but for slower/older computers, having a blurred version of the page act as a placeholder makes the experience of image loading less jarring.
 
 ### extra information - data storage
 
-Still I wanted to show more information past just the visual memories. I wanted the ability to get little blurbs relating to each picture and location.
+I still wanted to show more information past just the visual memories though. I wanted the ability to get little blurbs relating to each picture and location.
 
 Unfortunately, I knew that this section couldn't be automated- it would always be a pretty long process. I wanted to personalize each and every picture with its own blurb, and that meant I had to write out a separate description for each one and match them up with the picture using some sort of id or name. It was likely going to be tedious writing everything out so I wanted something simple that would do the job.
 
-I ended up just going with just a JS object storing the matching photo name, location, date, and a short description. I stored everything as a string except for the description. For some of the photos I wanted slightly longer blurbs that included newlines. In order to incorporate newlines, I stored each separate "paragraph" of the description into a array, which would allow me later to iterate over them, generating html components for each one. An alternative would have been to insert newline symbols and then parse the string later when generating content. I think that would make things harder to edit later on though, if descriptions became very long, symbols could easily get lost or missed.
+I ended up just going with just a JS object storing the matching photo name, location, date, and a short description. I stored everything as a string except for the description. For some of the photos, I wanted slightly longer blurbs that included newlines. In order to incorporate newlines, I stored each separate "paragraph" of the description into a array, which would allow me later to iterate over them, generating HTML components for each one. An alternative would have been to insert newline symbols and then parse the string later when generating content. I think that would make things harder to edit later on though, if descriptions became very long, symbols could easily get lost or missed.
 
-This is still far from the best solution for associating information with the images however. The only way to check for which description matches with which image is to do a check on their names. This requires a lot of manual work in naming them and then later on if any bugs come up. It's fine for now considering the scope is relatively small, but a better solution for the general case would be to hold all the data together, the description along with the images. Parsing of the image names could also be done in order to reduce the number of extra fields we have.
-
+However this is still far from the best solution for associating information with the images. The only way to check for which description matches with which image is to do a check on their names. This requires a lot of manual work in naming them and then later on if any bugs come up. It's fine for now considering the scope is relatively small, but a better solution for the general case would be to hold all the data together, the description along with the images. Parsing of the image names could also be done in order to reduce the number of extra fields we have.
 
 
 ### modals
 
 This feature was the one that came with the most choices. There are a lot of different ways to display information visually and also lots of ways to store that information. Though not a designer, I nevertheless had to come up with a few different designs.
 
-The first one was to simulate a rotation of the image and show the information on its backside. It definitely would look cool; animations are all the rage these days, especially ones that simulate real life objects.
+The first one was to simulate a rotation of the image and show the information on its backside. It definitely would look cool; animations are all the rage these days, especially ones that simulate real-life objects.
 I decided against this one as I wanted to keep the image on screen while showing the description so as to give the user context while they read.
 
-The second idea was to have the description come up next to the image, shifting the other images into a different alignment.
-I decided against this one as well. The shifting of the elements simply seemed too messy; I wanted to keep the gallery feeling of the images.
+The second idea was to have the description appear as a new component next to the image, which would shift all the other images into a different alignment.
+I decided against this one as well. The shifting of the elements felt like it would become too messy. Not all the images were the same size and not all the descriptions were the same length either which would cause a variable shift in elements every time. I wanted to keep the clean, gallery feeling of the page, so I tried to find another one.
 
 The third (and final) idea was to use a modal. Modals are typically used to draw the user's full attention to a specific element or component.
-Usually I dislike modals for this reason, it interrupts whatever else was current happening, forcing the user to contend with whatever the modal is presenting. However, in this scenario, that's exactly what I wanted. I would be able to keep the photo up to provide context, not disrupt the alignment of the other photos and keep the user's full attention.
+Usually, I dislike modals for this reason, it interrupts whatever else was currently happening, forcing the user to contend with whatever the modal is presenting. However, in this scenario, that's exactly what I wanted. I would be able to keep the photo up to provide context, not disrupt the alignment of the other photos and keep the user's full attention.
 
-Another component was made, a general one that would be hidden and filled depending on the photo clicked.
+To accomplish this, I created another modal component, one that would be hidden and filled depending on the photo clicked. This is pretty straightforward, multiple nested basic components with some `onClick` handlers.
 
 ```jsx
 <Modal hidden={props.hidden} onClick={e => props.setModalHidden(true)}>
@@ -345,10 +336,12 @@ Another component was made, a general one that would be hidden and filled depend
 Similar methods as before were employed to allow the state to track when the model should be visible depending on whether a picture was clicked and whether or not the user had just closed the active modal. 
 
 
-## final thoughts
+## final thoughts <a name="final thoughts"></a>
 
-In the end, I think there are a number of things I'd like to change up for the next trip I decide to document. For one, the choice to use a library to handle the images did indeed streamline the processs a little bit, but it also took away some of the agency I had in manipulating the images however I wanted. I waould probably want to do it from scratch the next time around.
+I think I was able to learn a lot from doing this project. I grew more comfortable with GraphQL. D3, and data manipulation. As I mentioned, I'm pretty new to data visualization in general. I've always been more text/numbers-oriented and trying to figure out how to display things visually was an interesting exercise.
+
+In the end, I think there are a number of things I'd like to change up for the next trip I decide to document. For one, the choice to use a library to handle the images did indeed streamline the process a little bit, but it also took away some of the agency I had in manipulating the images however I wanted. I would probably want to do it from scratch the next time around.
 
 In terms of the content, I found that I really enjoyed working with D3 in this manner. I've created small graphs in the past to display statistics such as my reading habits for the year, but nothing intensive. Even though this wasn't a particularly intensive project, I think it's given me motivation to continue forward with the content. 
 
-Furthermore, I didn't really consider using anything other than D3 for this project because of its reputation as the premier web data visualization library. Many newer libraries are either built off of D3 or try to act as simplified versions of it. But as I've continued to read more, it seems a lot of people are beginning to move away from D3. (Ex. [Paul Sweeney - Why I no longer use d3.js](https://medium.com/@PepsRyuu/why-i-no-longer-use-d3-js-b8288f306c9a)) I'll have to look a little deeper at my actual goals and whether or not D3 will always be the best library to go with.
+Furthermore, I didn't consider using anything other than D3 for this project because of its reputation as the premier web data visualization library. Many newer libraries are either built off of D3 or try to act as simplified versions of it. But as I've continued to read more, it seems a lot of people are beginning to move away from D3. (Ex. [Paul Sweeney - Why I no longer use d3.js](https://medium.com/@PepsRyuu/why-i-no-longer-use-d3-js-b8288f306c9a)) I'll have to look a little deeper at my actual goals and whether or not D3 will always be the best library to go with.
