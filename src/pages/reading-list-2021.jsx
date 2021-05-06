@@ -41,6 +41,12 @@ export default function ReadingList2021() {
     {title: "Station Eleven", url: "https://www.goodreads.com/book/show/20170404-station-eleven"},
     {title: "Klara and the Sun", url: "https://www.goodreads.com/book/show/54120408-klara-and-the-sun"},
     {title: "Dark Matter", url: "https://www.goodreads.com/book/show/27833670-dark-matter"},
+    {title: "The Orphan Master's Son", url: "https://www.goodreads.com/book/show/11529868-the-orphan-master-s-son"},
+    {title: "Detransition Baby", url: "https://www.goodreads.com/book/show/48890225-detransition-baby"},
+    {title: "Happiness: Essential Mindfulness Practices", url: "https://www.goodreads.com/book/show/6550421-happiness"},
+    {title: "A Visit from the Goon Squad", url: "https://www.goodreads.com/book/show/7331435-a-visit-from-the-goon-squad"},
+    {title: "The Song of Achilles", url: "https://www.goodreads.com/book/show/11250317-the-song-of-achilles"},
+    {title: "Tinkers", url: "https://www.goodreads.com/book/show/4957350-tinkers"},
   ]
   return (
     <Layout tab="Reading">
