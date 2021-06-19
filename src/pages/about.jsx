@@ -42,12 +42,12 @@ const About = () => (
     <Flex boxWidth="32%" style={{ marginTop: "20px" }}>
       <Box>
         <Heading>current term</Heading>
-        <Text>2nd coop term at Synqrinus</Text>
+        <Text>2B Study term</Text>
       </Box>
 
       <Box>
         <Heading>location</Heading>
-        <Text>Toronto, ON</Text>
+        <Text>Seattle, WA</Text>
       </Box>
       <Box></Box>
     </Flex>
