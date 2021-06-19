@@ -16,7 +16,7 @@ export default function Writing() {
       <Title>Writing</Title>
       <Text description>My thoughts in words</Text>
 
-      <PageList section="poems" />
+      {/* <PageList section="poems" /> */}
 
       <PageList section="essays" />
     </Layout>

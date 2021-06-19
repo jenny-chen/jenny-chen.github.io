@@ -27,7 +27,8 @@ const Layout = ({ tab, children }) => {
     <>
       <Theme>
         <Flex justifyContent="center" style={ styles }>
-          <Sidebar tab={tab} />
+          {/* <Sidebar tab={tab} /> */}
+          {/* <Box flex="4" width="20%" outside> */}
           <Box flex="4" outside>
             <main>{children}</main>
           </Box>

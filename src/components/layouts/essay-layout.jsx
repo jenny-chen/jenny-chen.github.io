@@ -22,14 +22,22 @@ const renderAst = new rehypeReact({
 export default function EssayLayout({ data }) {
   const { markdownRemark: post } = data
   return (
-    <Layout>
+    <Layout tab="Writing">
       <SEO title={post.frontmatter.title} />
       <Title>{post.frontmatter.title}</Title>
       <Text description>{post.frontmatter.description}</Text>
       <Heading>{post.frontmatter.date}</Heading>
+      {post.frontmatter.contents.map((heading, i) => {
+        return (
+          <Link key={i} href={"#"+heading}>
+            <Text>{heading}</Text>
+          </Link>
+        )
+      })}
       {
         renderAst(post.htmlAst)
       }
+      <div style={{ height: "40vh" }}></div>
     </Layout>
   )
 }
@@ -43,6 +51,7 @@ export const pageQuery = graphql`
         path
         title
         description
+        contents
       }
     }
   }

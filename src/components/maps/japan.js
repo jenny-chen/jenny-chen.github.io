@@ -29,8 +29,6 @@ class JapanMap extends Component {
 
     const height = +div.node().offsetHeight;
     const width = +div.node().offsetWidth;
-    console.log("height: ", height)
-    console.log("width: ", width)
 
     const svg = div.append('svg')
       .attr("width", width)
@@ -48,6 +46,7 @@ class JapanMap extends Component {
     const visited = ["Tokyo To", "Kyoto Fu", "Osaka Fu", "Fukuoka Ken", "Nara Ken", "Aichi Ken"]
     const visitedColor = "#f5d1c6"
     const nonVisitedColor = "white"
+    const selectedColor = "#334e70"
 
     const setLoc = (newLoc, newLocJa) => {
       this.setState({loc: newLoc, loc_ja: newLocJa})
@@ -94,7 +93,7 @@ class JapanMap extends Component {
         })
         .on("mouseout", function(e) {
           if (e.properties.nam === selected) {
-            d3.select(this).style("fill", "#334e70")
+            d3.select(this).style("fill", selectedColor)
           } else if (visited.includes(e.properties.nam)) {
             d3.select(this).style("fill", visitedColor)
           } else {
@@ -113,7 +112,7 @@ class JapanMap extends Component {
                 }
               })
             setTitleLoc(e.properties.nam, e.properties.nam_ja)
-            d3.select(this).style("fill", "#334e70")
+            d3.select(this).style("fill", selectedColor)
           }
         })
     });
