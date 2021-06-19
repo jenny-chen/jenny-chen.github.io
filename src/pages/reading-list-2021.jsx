@@ -47,6 +47,10 @@ export default function ReadingList2021() {
     {title: "A Visit from the Goon Squad", url: "https://www.goodreads.com/book/show/7331435-a-visit-from-the-goon-squad"},
     {title: "The Song of Achilles", url: "https://www.goodreads.com/book/show/11250317-the-song-of-achilles"},
     {title: "Tinkers", url: "https://www.goodreads.com/book/show/4957350-tinkers"},
+    {title: "Project Hail Mary", url: "https://www.goodreads.com/book/show/54493401-project-hail-mary"},
+    {title: "Circe", url: "https://www.goodreads.com/book/show/54814676-crying-in-h-mart"},
+    {title: "Difficult Conversations", url: "https://www.goodreads.com/book/show/774088.Difficult_Conversations"},
+    {title: "The Glass Castle", url: "https://www.goodreads.com/book/show/7445.The_Glass_Castle"},
   ]
   return (
     <Layout tab="Reading">
