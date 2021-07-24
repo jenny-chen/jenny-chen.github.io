@@ -48,9 +48,18 @@ export default function ReadingList2021() {
     {title: "The Song of Achilles", url: "https://www.goodreads.com/book/show/11250317-the-song-of-achilles"},
     {title: "Tinkers", url: "https://www.goodreads.com/book/show/4957350-tinkers"},
     {title: "Project Hail Mary", url: "https://www.goodreads.com/book/show/54493401-project-hail-mary"},
-    {title: "Circe", url: "https://www.goodreads.com/book/show/54814676-crying-in-h-mart"},
+    {title: "Circe", url: "https://www.goodreads.com/book/show/35959740-circe"},
+    {title: "Catcher in the Rye", url: "https://www.goodreads.com/book/show/5107.The_Catcher_in_the_Rye"},
+    {title: "Crying in H-Mart", url: "https://www.goodreads.com/book/show/54814676-crying-in-h-mart"},
     {title: "Difficult Conversations", url: "https://www.goodreads.com/book/show/774088.Difficult_Conversations"},
     {title: "The Glass Castle", url: "https://www.goodreads.com/book/show/7445.The_Glass_Castle"},
+    {title: "First Person Singular", url: "https://www.goodreads.com/book/show/54614599-first-person-singular"},
+    {title: "You'll Like it Here (Everybody Does)", url: "https://www.goodreads.com/book/show/9460533-you-ll-like-it-here"},
+    {title: "Uncanny Valley", url: "https://www.goodreads.com/book/show/45186565-uncanny-valley"},
+    {title: "Dearly", url: "https://www.goodreads.com/it/book/show/50706476-dearly"},
+    {title: "Debt", url: "https://www.goodreads.com/book/show/6617037-debt"},
+    {title: "Dear Girls", url: "https://www.goodreads.com/book/show/44600621-dear-girls"},
+    {title: "Turtles All The Way Down", url: "https://www.goodreads.com/book/show/35504431-turtles-all-the-way-down"},
   ]
   return (
     <Layout tab="Reading">
