@@ -60,6 +60,12 @@ export default function ReadingList2021() {
     {title: "Debt", url: "https://www.goodreads.com/book/show/6617037-debt"},
     {title: "Dear Girls", url: "https://www.goodreads.com/book/show/44600621-dear-girls"},
     {title: "Turtles All The Way Down", url: "https://www.goodreads.com/book/show/35504431-turtles-all-the-way-down"},
+    {title: "Conversations With Friends", url: "https://www.goodreads.com/book/show/32187419-conversations-with-friends"},
+    {title: "When We Were Orphans", url: "https://www.goodreads.com/book/show/28923.When_We_Were_Orphans"},
+    {title: "One Flew Over The Cuckoo's Nest", url: "https://www.goodreads.com/book/show/332613.One_Flew_Over_the_Cuckoo_s_Nest"},
+    {title: "Time Travel: A History", url: "https://www.goodreads.com/book/show/28587584-time-travel"},
+    {title: "Interior Chinatown", url: "https://www.goodreads.com/book/show/44436221-interior-chinatown"},
+    // {title: "", url: ""},
   ]
   return (
     <Layout tab="Reading">

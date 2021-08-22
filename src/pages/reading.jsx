@@ -56,8 +56,9 @@ export default function Reading() {
       <Title>Reading</Title>
       <Text description>What I talk about when I talk about books</Text>
 
-      <Reading2020Graph />
+      {/* <Reading2020Graph /> */}
       {/* <ReadingWords2020Graph /> */}
+      <Reading2021Graph />
 
       <Text>
         <PaddedLink td="none" to="/reading-list-2021">Reading List 2021</PaddedLink>
