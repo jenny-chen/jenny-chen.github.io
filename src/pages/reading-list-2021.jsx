@@ -65,6 +65,12 @@ export default function ReadingList2021() {
     {title: "One Flew Over The Cuckoo's Nest", url: "https://www.goodreads.com/book/show/332613.One_Flew_Over_the_Cuckoo_s_Nest"},
     {title: "Time Travel: A History", url: "https://www.goodreads.com/book/show/28587584-time-travel"},
     {title: "Interior Chinatown", url: "https://www.goodreads.com/book/show/44436221-interior-chinatown"},
+    {title: "Writing Tools: 50 Essential Strategies for Every Writer", url: "https://www.goodreads.com/book/show/51750.Writing_Tools"},
+    {title: "Ella Minnow Pea: A Novel in Letters", url: "https://www.goodreads.com/book/show/16200.Ella_Minnow_Pea"},
+    {title: "A Clockwork Orange", url: "https://www.goodreads.com/book/show/41817486-a-clockwork-orange"},
+    {title: "The Seven Husbands of Evelyn Hugo", url: "https://www.goodreads.com/book/show/32620332-the-seven-husbands-of-evelyn-hugo"},
+    {title: "The Headspace Guide to Mindfulness & Meditation", url: "https://www.goodreads.com/book/show/27414493-the-headspace-guide-to-meditation-mindfulness"},
+    {title: "Alias Grace", url: "https://www.goodreads.com/book/show/72579.Alias_Grace"},
     // {title: "", url: ""},
   ]
   return (
