@@ -71,6 +71,15 @@ export default function ReadingList2021() {
     {title: "The Seven Husbands of Evelyn Hugo", url: "https://www.goodreads.com/book/show/32620332-the-seven-husbands-of-evelyn-hugo"},
     {title: "The Headspace Guide to Mindfulness & Meditation", url: "https://www.goodreads.com/book/show/27414493-the-headspace-guide-to-meditation-mindfulness"},
     {title: "Alias Grace", url: "https://www.goodreads.com/book/show/72579.Alias_Grace"},
+    {title: "They Both Die At The End", url: "https://www.goodreads.com/book/show/33385229-they-both-die-at-the-end"},
+    {title: "The Poppy War", url: "https://www.goodreads.com/book/show/35068705-the-poppy-war"},
+    {title: "The Dragon Republic", url: "https://www.goodreads.com/book/show/41118857-the-dragon-republic"},
+    {title: "The Burning God", url: "https://www.goodreads.com/book/show/45857086-the-burning-god"},
+    {title: "Immediate Family", url: "https://www.goodreads.com/book/show/48804965-immediate-family"},
+    {title: "Tokyo Ueno Station", url: "https://www.goodreads.com/book/show/43398196-tokyo-ueno-station"},
+    {title: "China Room", url: "https://www.goodreads.com/book/show/55994371-china-room"},
+    {title: "An Ugly Truth", url: "https://www.goodreads.com/book/show/56470423-an-ugly-truth"},
+    {title: "Beautiful World, Where Are You", url: "https://www.goodreads.com/book/show/56597885-beautiful-world-where-are-you"},
     // {title: "", url: ""},
   ]
   return (
