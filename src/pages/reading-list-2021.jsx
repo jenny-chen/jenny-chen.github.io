@@ -80,6 +80,10 @@ export default function ReadingList2021() {
     {title: "China Room", url: "https://www.goodreads.com/book/show/55994371-china-room"},
     {title: "An Ugly Truth", url: "https://www.goodreads.com/book/show/56470423-an-ugly-truth"},
     {title: "Beautiful World, Where Are You", url: "https://www.goodreads.com/book/show/56597885-beautiful-world-where-are-you"},
+    {title: "Great Circle", url: "https://www.goodreads.com/book/show/54976986-great-circle"},
+    {title: "Open Water", url: "https://www.goodreads.com/en/book/show/53414230"},
+    {title: "How Do You Live", url: "https://www.goodreads.com/book/show/54110592-how-do-you-live"},
+    {title: "The Dutch House", url: "https://www.goodreads.com/book/show/44318414-the-dutch-house"},
     // {title: "", url: ""},
   ]
   return (
