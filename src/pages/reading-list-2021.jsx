@@ -84,6 +84,9 @@ export default function ReadingList2021() {
     {title: "Open Water", url: "https://www.goodreads.com/en/book/show/53414230"},
     {title: "How Do You Live", url: "https://www.goodreads.com/book/show/54110592-how-do-you-live"},
     {title: "The Dutch House", url: "https://www.goodreads.com/book/show/44318414-the-dutch-house"},
+    {title: "The Overstory", url: "https://www.goodreads.com/book/show/40180098-the-overstory"},
+    {title: "Cloud Cuckoo Land", url: "https://www.goodreads.com/en/book/show/56783258-cloud-cuckoo-land"},
+    {title: "Minor Feelings", url: "https://www.goodreads.com/book/show/52845775-minor-feelings"},
     // {title: "", url: ""},
   ]
   return (
