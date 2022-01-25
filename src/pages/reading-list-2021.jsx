@@ -2,8 +2,7 @@ import React from "react"
 
 import Layout from "../components/layouts/layout"
 import SEO from "../components/seo"
-import Reading2021Graph from "../components/graphs/reading-2021"
-// import ReadingWords2020Graph from "../components/graphs/reading-words-2020"
+import ReadingGraph from "../components/graphs/reading-graph"
 
 import {
   Box,
@@ -89,15 +88,17 @@ export default function ReadingList2021() {
     {title: "Minor Feelings", url: "https://www.goodreads.com/book/show/52845775-minor-feelings"},
     // {title: "", url: ""},
   ]
+  const year = "2021";
+
   return (
     <Layout tab="Reading">
       <SEO title="Reading" />
-      <Title>Reading List 2021</Title>
-      <Text description>What I read in 2021</Text>
+      <Title>{"Reading List "+year}</Title>
+      <Text description>{"What I read in "+year}</Text>
 
       <Flex>
         <Box width={{ _: "100%", widescreen: "100%" }}>
-          <Reading2021Graph />
+          <ReadingGraph year={year} />
           <OList>
             {
               books.map((book, i) => {
@@ -118,7 +119,6 @@ export default function ReadingList2021() {
           </OList>
         </Box>
       </Flex>
-
     </Layout>
   )
 }

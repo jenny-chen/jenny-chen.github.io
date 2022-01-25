@@ -43,8 +43,8 @@ const Sidebar = ({ page, tab }) => {
   const travelsPages = ["Japan"]
   const travelsPaths =["/japan"]
 
-  const experiencesPages = ["Jewlr", "HelpingHands", "ProjectCSGirls"]
-  const experiencesPaths = ["/jewlr", "/helpinghands", "/projectcsgirls"]
+  const experiencesPages = ["Faire", "Synqrinus", "Jewlr", "HelpingHands", "ProjectCSGirls"]
+  const experiencesPaths = ["/faire", "/synqrinus", "/jewlr", "/helpinghands", "/projectcsgirls"]
 
   const projectsPages = []
   const projectsPaths = []

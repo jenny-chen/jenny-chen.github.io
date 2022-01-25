@@ -4,9 +4,8 @@ import styled from "styled-components"
 import Layout from "../components/layouts/layout"
 import SEO from "../components/seo"
 import PageList from "../components/page-list"
-import Reading2020Graph from "../components/graphs/reading-2020"
-import Reading2021Graph from "../components/graphs/reading-2021"
 import ReadingWords2020Graph from "../components/graphs/reading-words-2020"
+import ReadingGraph from "../components/graphs/reading-graph"
 
 import {
   Box,
@@ -47,7 +46,6 @@ export default function Reading() {
     {title: "Life of Pi", url: "https://www.goodreads.com/book/show/4214.Life_of_Pi"},
     {title: "The Long Way to a Small, Angry Planet", url: "https://www.goodreads.com/book/show/22733729-the-long-way-to-a-small-angry-planet"},
     {title: "The Luminaries", url: "https://www.goodreads.com/book/show/17333230-the-luminaries"},
-    {title: "The Remains of the Day", url: "https://www.goodreads.com/book/show/28921.The_Remains_of_the_Day"},
     {title: "The Three-Body Problem", url: "https://www.goodreads.com/book/show/20518872-the-three-body-problem"},
   ]
   return (
@@ -56,11 +54,10 @@ export default function Reading() {
       <Title>Reading</Title>
       <Text description>What I talk about when I talk about books</Text>
 
-      {/* <Reading2020Graph /> */}
-      {/* <ReadingWords2020Graph /> */}
-      <Reading2021Graph />
+      <ReadingGraph year="2022" />
 
       <Text>
+        <PaddedLink td="none" to="/reading-list-2022">Reading List 2022</PaddedLink>
         <PaddedLink td="none" to="/reading-list-2021">Reading List 2021</PaddedLink>
         <PaddedLink td="none" to="/reading-list-2020">Reading List 2020</PaddedLink>
       </Text>

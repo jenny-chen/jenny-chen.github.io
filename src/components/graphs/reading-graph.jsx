@@ -2,14 +2,14 @@ import React, { Component } from "react"
 import * as d3 from "d3"
 import "./graph-css.css"
 
-class Reading2021Graph extends Component {
+class ReadingGraph extends Component {
   componentDidMount() {
     this.drawChart();
     window.addEventListener("resize", this.drawChart.bind(this));
   }
   
   drawChart() {
-    const div = d3.select('#scatter');
+    const div = d3.select("#scatter-"+this.props.year);
     div.select('svg').remove();
 
     const height = +div.node().offsetHeight;
@@ -135,7 +135,7 @@ class Reading2021Graph extends Component {
 
     };
 
-    d3.csv("/data/reading-2021.csv").then(data => {
+    d3.csv("/data/reading-"+this.props.year+".csv").then(data => {
       data.forEach(d => {
         d.books = +d.books;
       });
@@ -145,9 +145,9 @@ class Reading2021Graph extends Component {
 
   render() {
     return (
-      <div id="scatter" className="hide-graph graphDiv"></div>
+      <div id={"scatter-"+this.props.year} className="hide-graph graphDiv"></div>
     )
   }
 }
 
-export default Reading2021Graph
+export default ReadingGraph
