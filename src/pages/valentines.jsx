@@ -18,7 +18,7 @@ import {
 
 const Valentines = () => (
   <LayoutEmpty>
-    <SEO title="About" />
+    <SEO title="Valentine's Day" />
     <StyledTitle>Happy (early) Valentine's Day</StyledTitle>
 
     <Text>
@@ -60,7 +60,7 @@ const Valentines = () => (
       <Dish>beef ragu</Dish>
       <DishText>chickpea pasta in a beef and tomato based sauce made with carrots, onions and more</DishText>
 
-      <Dish>fried chicken sandwich</Dish>
+      <Dish>chicken katsu sando</Dish>
       <DishText>toasted milk bread, fried chicken, cabbage, caramelized onions, pickles, house sauce</DishText>
 
       <Dish>cabbage mille-feuille</Dish>
