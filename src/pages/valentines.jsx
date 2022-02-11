@@ -48,10 +48,10 @@ const Valentines = () => (
       <DishText>soy glazed potatoes, crispy exterior and soft inside</DishText>
 
       <Dish>ddeokbokki</Dish>
-      <DishText>crispy and spicy pan-fried rice cakes</DishText>
+      <DishText>crispy and spicy pan-fried rice cakes with fish cakes</DishText>
 
       <Dish>shrimp croquettes</Dish>
-      <DishText>shrimp, potato, onion come together before being covered with panko and deep fried</DishText>
+      <DishText>shrimp, potato, onion come together in a panko covered batter and deep fried</DishText>
     </MenuBox>
 
     <MenuBox mains>
