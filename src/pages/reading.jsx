@@ -4,7 +4,6 @@ import styled from "styled-components"
 import Layout from "../components/layouts/layout"
 import SEO from "../components/seo"
 import PageList from "../components/page-list"
-import ReadingWords2020Graph from "../components/graphs/reading-words-2020"
 import ReadingGraph from "../components/graphs/reading-graph"
 
 import {
