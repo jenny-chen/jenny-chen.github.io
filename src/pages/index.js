@@ -21,11 +21,11 @@ const PageLinks = ({ pages, paths, tab }) => {
 }
 
 const IndexPage = () => {
-  const travelsPages = ["Japan"]
-  const travelsPaths =["/japan"]
+  const travelsPages = ["Hong Kong", "Japan"]
+  const travelsPaths =["/hongkong", "/japan"]
 
-  const experiencesPages = ["Jewlr", "HelpingHands", "ProjectCSGirls"]
-  const experiencesPaths = ["/jewlr", "/helpinghands", "/projectcsgirls"]
+  const experiencesPages = ["Figma S2022", "Faire", "Synqrinus", "Jewlr", "HelpingHands", "ProjectCSGirls"]
+  const experiencesPaths = ["/figma-S2022", "/faire", "/synqrinus", "/jewlr", "/helpinghands", "/projectcsgirls"]
 
   const projectsPages = []
   const projectsPaths = []
@@ -75,9 +75,9 @@ const IndexPage = () => {
           To be honest, I'm not sure what to do with this empty space yet. If you have a suggestion, I'd love to <ExtLink href="mailto:jenny.chen1@uwaterloo.ca">hear it</ExtLink>!
         </Text>
         <Text>
-          I'm in the process of designing a new personal site, but this current layout is inspired by <ExtLink href="https://willium.com">William Strimling</ExtLink>.
+          I'm (perpetually) in the process of designing a new personal site, but this current layout is inspired by <ExtLink href="https://willium.com">William Strimling</ExtLink>.
         </Text>
-        <Text>In the meantime, I just updated this site with some memories from my <Link to="/japan">2019 trip to Japan</Link> and would love for you to see :D</Text>
+        <Text>In the meantime, I just updated this site with some memories from my <b><Link to="/Hong Kong">2022 exchange term in Hong Kong</Link></b> and would love for you to see :D</Text>
       </Box>
     </Layout>
   )
