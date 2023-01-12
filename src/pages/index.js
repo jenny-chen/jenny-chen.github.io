@@ -77,7 +77,7 @@ const IndexPage = () => {
         <Text>
           I'm (perpetually) in the process of designing a new personal site, but this current layout is inspired by <ExtLink href="https://willium.com">William Strimling</ExtLink>.
         </Text>
-        <Text>In the meantime, I just updated this site with some memories from my <b><Link to="/Hong Kong">2022 exchange term in Hong Kong</Link></b> and would love for you to see :D</Text>
+        <Text>In the meantime, I just updated this site with some memories from my <b><Link to="/hongkong">2022 exchange term in Hong Kong</Link></b> and would love for you to see :D</Text>
       </Box>
     </Layout>
   )
