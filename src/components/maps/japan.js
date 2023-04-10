@@ -3,6 +3,7 @@ import * as d3 from "d3"
 import * as topojson from "topojson-client";
 import "./japan.css"
 
+
 class JapanMap extends Component {
   constructor(props){
     super(props);
@@ -46,6 +47,7 @@ class JapanMap extends Component {
     var selected = this.state.title_loc
 
     const visited = ["Tokyo To", "Kyoto Fu", "Osaka Fu", "Fukuoka Ken", "Nara Ken", "Aichi Ken"]
+    const selectedColor = "#FFD148";
     const visitedColor = "#f5d1c6"
     const nonVisitedColor = "white"
 
@@ -77,7 +79,7 @@ class JapanMap extends Component {
         .style("stroke-width", "0.6")
         .style("fill", function(e) {
           if (selected === e.properties.nam) {
-            return "#334e70"
+            return selectedColor
           } else if (visited.includes(e.properties.nam)) {
             return visitedColor
           } else {
@@ -94,7 +96,7 @@ class JapanMap extends Component {
         })
         .on("mouseout", function(e) {
           if (e.properties.nam === selected) {
-            d3.select(this).style("fill", "#334e70")
+            d3.select(this).style("fill", selectedColor)
           } else if (visited.includes(e.properties.nam)) {
             d3.select(this).style("fill", visitedColor)
           } else {
@@ -113,7 +115,7 @@ class JapanMap extends Component {
                 }
               })
             setTitleLoc(e.properties.nam, e.properties.nam_ja)
-            d3.select(this).style("fill", "#334e70")
+            d3.select(this).style("fill", selectedColor)
           }
         })
     });

@@ -38,21 +38,25 @@ export default function HongKong({ data }) {
   }
 
   return (
-    <Layout tab="HongKong">
+    <Layout tab="Hong Kong">
       <SEO title="HongKong" />
       <Title>Hong Kong</Title>
       <Text description>Aug - Dec 2022</Text>
 
-      <HongKongMap setLoc={(newLoc) => setLoc(newLoc)}  />
+      <HongKongMap setLoc={newLoc => setLoc(newLoc)} />
 
       <Flex boxWidth="49.5%" photos>
         {loc !== "HongKong" &&
           photos[loc.split(" ")[0].toLowerCase()].map((photo, index) => {
             return (
-              <Box key={photo.name} photo onClick={e => {
-                setOpenPhoto(photo)
-                setModalHidden(false)
-              }}>
+              <Box
+                key={photo.name}
+                photo
+                onClick={e => {
+                  setOpenPhoto(photo)
+                  setModalHidden(false)
+                }}
+              >
                 <GatsbyImage
                   alt={photo.name}
                   key={photo.name}
@@ -61,18 +65,22 @@ export default function HongKong({ data }) {
                 />
               </Box>
             )
-          })
-        }
+          })}
       </Flex>
 
       <PhotoModal
-        text="modal text" 
+        text="modal text"
         hidden={modalHidden}
         photo={openPhoto}
-        setModalHidden={(newModalHidden) => setModalHidden(newModalHidden)}
-        info={hongKongPhotoInformation[openPhoto.name] || {date: "", location: "", description: [""]}}
+        setModalHidden={newModalHidden => setModalHidden(newModalHidden)}
+        info={
+          hongKongPhotoInformation[openPhoto.name] || {
+            date: "",
+            location: "",
+            description: [""],
+          }
+        }
       />
-      
     </Layout>
   )
 }

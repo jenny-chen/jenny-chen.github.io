@@ -80,11 +80,12 @@ class ReadingGraph extends Component {
         .attr('d', areaGenerator(data));
 
       // interactive label stuff
-      const focus = g.append('circle')
-          .style("fill", "steelblue")
-          .attr("stroke", "steelblue")
-          .attr('r', 4)
-          .style("opacity", 0)
+      const focus = g
+        .append("circle")
+        .style("fill", "#FFD148")
+        .attr("stroke", "#FFD148")
+        .attr("r", 4)
+        .style("opacity", 0)
 
       const focusText = g.append('text')
           .style("opacity", 0)

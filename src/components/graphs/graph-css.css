@@ -16,7 +16,7 @@ svg {
 }
 
 rect, circle {
-  fill: steelblue;
+  fill: #FFD148;
 }
 
 text {
@@ -26,12 +26,12 @@ text {
 
 .line-path {
   fill: none;
-  stroke: steelblue;
+  stroke: #FFD148;
   stroke-width: 2;
 }
 
 .area-path {
-  fill: steelblue;
+  fill: #FFD148;
   fill-opacity: 0.4;
 }
 

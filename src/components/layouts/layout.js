@@ -14,22 +14,23 @@ import Sidebar from "../sidebar"
 // import "./layout.css"
 
 const Layout = ({ tab, children }) => {
-
   const styles = {
     margin: "auto",
     maxWidth: "1200px",
     lineHeight: "1.5",
-    WebkitFontSmoothing: "antialiased"
+    WebkitFontSmoothing: "antialiased",
   }
 
   return (
     <>
       <Theme>
-        <Flex justifyContent="center" style={ styles }>
+        <Flex justifyContent="center" style={styles}>
           <Sidebar tab={tab} />
-          <Box flex="4" outside>
-            <main>{children}</main>
-          </Box>
+          {tab !== "Home" ? (
+            <Box flex="4" outside>
+              <main>{children}</main>
+            </Box>
+          ) : null}
         </Flex>
       </Theme>
     </>

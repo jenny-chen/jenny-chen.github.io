@@ -2,101 +2,141 @@ import PropTypes from "prop-types"
 import React from "react"
 import styled from "styled-components"
 
-// import profile from "../images/profile.png"
 import Socials from "../components/socials"
-import resume from "../../assets/resume.pdf"
 
-import { Box, ExtLink, Heading, Link, PageLink, Text, Title } from "./basics"
+import { Box, ExtLink, Flex, Highlight, Link, PageLink, Text } from "./basics"
 
 const Side = styled.div`
-  border-bottom: 1px solid ${props => props.theme.colors.lightestGray}; 
+  border-bottom: 1px solid ${props => props.theme.colors.lightGray};
   border-right: none;
   padding-bottom: 20px;
   padding-right: 0px;
 
   ${({ theme }) => `${theme.mediaQueries.tablet} {
     border-bottom: none;
-    border-right: 1px solid ${theme.colors.lightestGray}; 
+    border-right: 1px solid ${theme.colors.lightGray}; 
     padding-bottom: 0;
-    padding-right: 20px;
+    padding-right: 32px;
+    height: 100%;
   }`}
+
+  border: ${props => props.tab === "Home" && "none !important"};
+  padding: ${props => props.tab === "Home" && "0px !important"};
 `
 
 const PageLinks = ({ pages, paths, tab }) => {
   return (
     <>
       {pages.map((page, i) => (
-        <PageLink
-          bold={page === tab ? 700 : 500}
-          key={i} to={paths[i]}>
-            {page}
+        <PageLink underline={page === tab} key={i} to={paths[i]}>
+          {page === tab ? <Highlight>{page}</Highlight> : page}
         </PageLink>
       ))}
     </>
   )
 }
 
+const PageLinksBox = styled(Box)`
+  display: flex;
+  flex-wrap: wrap;
+
+  ${({ theme }) => `${theme.mediaQueries.tablet} {
+    display: block;
+  }`}
+`
+
+const Header = styled(Text)`
+  font-weight: bold;
+  margin-bottom: 8px;
+`
+
 const Sidebar = ({ page, tab }) => {
-  const pages = ["About", "Reading"]
-  const paths = ["/about", "/reading"]
-
   const travelsPages = ["Hong Kong", "Japan"]
-  const travelsPaths =["/hongkong", "/japan"]
+  const travelsPaths = ["/hongkong", "/japan"]
 
-  const experiencesPages = ["Figma S2022", "Faire", "Synqrinus", "Jewlr", "HelpingHands", "ProjectCSGirls"]
-  const experiencesPaths = ["/figma-S2022", "/faire", "/synqrinus", "/jewlr", "/helpinghands", "/projectcsgirls"]
-
-  const projectsPages = []
-  const projectsPaths = []
+  const experiencesPages = [
+    "Figma S2022",
+    "Faire",
+    "Synqrinus",
+    "Jewlr",
+    "HelpingHands",
+    "ProjectCSGirls",
+  ]
+  const experiencesPaths = [
+    "/figma-S2022",
+    "/faire",
+    "/synqrinus",
+    "/jewlr",
+    "/helpinghands",
+    "/projectcsgirls",
+  ]
 
   return (
-    <Box flex="1" mt={{ _: "50px", tablet: "30px" }} outside style={{ maxWidth: "300px", minWidth: "300px" }}>
-      <Side>
-
-        {/* <img alt="headshot" src={profile} height="50px" width="50px" /> */}
-        <Box display={{ _: "none", tablet: "block" }}>
-          <Title>
-            Hi, my name is <Link to="/" td="none">Jenny</Link>!
-          </Title>
+    <Box
+      flex="1"
+      mt={{ _: "50px", tablet: "30px" }}
+      outside
+      style={{ maxWidth: "300px", minWidth: "300px" }}
+    >
+      <Side tab={tab}>
+        <Flex flexDirection="column">
           <Socials />
-          <Text>
-            I’m currently a software engineering student at the University of Waterloo. When I’m not studying or coding, you can usually catch me reading, gaming, or cooking.
-          </Text>
+          <Box>
+            <Header>
+              Hi, I'm{" "}
+              <Highlight>
+                <Link to="/about" td="none">
+                  Jenny
+                </Link>
+              </Highlight>
+            </Header>
+            <Text>
+              I'm a 4th year software engineering student at the{" "}
+              <ExtLink href="https://www.uwaterloo.ca/">
+                University of Waterloo
+              </ExtLink>
+              . I'm currently a software engineering intern on the FigJam team
+              at Figma. When I'm not studying or coding, you can usually catch
+              me reading, travelling, working out, or, more likely, eating.
+            </Text>
+          </Box>
 
-          <Text>
-            Check out my <Link to={resume}>resume</Link>.
-          </Text>
-        </Box>
+          <Box mb={32}>
+            <Header>
+              <Link to="/reading" td="none">
+                {tab === "Reading" ? <Highlight>Reading</Highlight> : "Reading"}
+              </Link>
+            </Header>
+          </Box>
 
-        <Text>
-          <br />
-          <PageLink bold={"Home" === tab ? 700 : 500} display={{ tablet: "none" }} to="/" >Home</PageLink>
-          <PageLinks pages={pages} paths={paths} tab={tab} />
-        </Text>
+          <Flex>
+            <Flex flexDirection="column" flex="1" justifyContent="flex-start">
+              <Header>Work</Header>
+              <PageLinksBox>
+                {experiencesPages.length > 0 && (
+                  <PageLinks
+                    pages={experiencesPages}
+                    paths={experiencesPaths}
+                    tab={tab}
+                  />
+                )}
+              </PageLinksBox>
+            </Flex>
 
-        <Box display={{ _: "none", tablet: "block" }}>
-          <Heading>travels</Heading>
-          <Text>
-            <PageLinks pages={travelsPages} paths={travelsPaths} tab={tab} />
-          </Text>
-
-          <Heading>experiences</Heading>
-          <Text>
-            <PageLinks pages={experiencesPages} paths={experiencesPaths} tab={tab} />
-          </Text>
-
-          <Heading>projects</Heading>
-          <Text>
-            <PageLinks pages={projectsPages} paths={projectsPaths} tab={tab} />
-          </Text>
-          <Text>
-            <ExtLink href="https://www.joannachen.ca/pear/" td="none">Pear</ExtLink>
-          </Text>
-          <Text>
-            <ExtLink href="https://devpost.com/jenny-chen?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav" td="none">Hackathon Projects</ExtLink>
-          </Text>
-        </Box>
-
+            <Flex flexDirection="column" flex="1" justifyContent="flex-start">
+              <Header>Travels</Header>
+              <PageLinksBox>
+                {travelsPages.length > 0 && (
+                  <PageLinks
+                    pages={travelsPages}
+                    paths={travelsPaths}
+                    tab={tab}
+                  />
+                )}
+              </PageLinksBox>
+            </Flex>
+          </Flex>
+        </Flex>
       </Side>
     </Box>
   )

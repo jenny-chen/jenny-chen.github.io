@@ -51,14 +51,19 @@ export default function Reading() {
     <Layout tab="Reading">
       <SEO title="Reading" />
       <Title>Reading</Title>
-      <Text description>What I talk about when I talk about books</Text>
 
       <ReadingGraph year="2022" />
 
       <Text>
-        <PaddedLink td="none" to="/reading-list-2022">Reading List 2022</PaddedLink>
-        <PaddedLink td="none" to="/reading-list-2021">Reading List 2021</PaddedLink>
-        <PaddedLink td="none" to="/reading-list-2020">Reading List 2020</PaddedLink>
+        <PaddedLink td="none" to="/reading-list-2022">
+          Reading List 2022
+        </PaddedLink>
+        <PaddedLink td="none" to="/reading-list-2021">
+          Reading List 2021
+        </PaddedLink>
+        <PaddedLink td="none" to="/reading-list-2020">
+          Reading List 2020
+        </PaddedLink>
       </Text>
       <br />
 
@@ -69,44 +74,34 @@ export default function Reading() {
           <Box>
             <RecHeading>non-fiction</RecHeading>
             <UList>
-              {
-                recNonFic.map((book, i) => {
-                  return (
-                    <li key={i}>
-                      <Text>
-                        <ExtLink
-                          href={book.url}
-                          td="none"
-                        >
-                          {book.title}
-                        </ExtLink>
-                      </Text>
-                    </li>
-                  )
-                })
-              }
+              {recNonFic.map((book, i) => {
+                return (
+                  <li key={i}>
+                    <Text>
+                      <ExtLink href={book.url} td="none">
+                        {book.title}
+                      </ExtLink>
+                    </Text>
+                  </li>
+                )
+              })}
             </UList>
           </Box>
 
           <Box>
             <RecHeading>fiction</RecHeading>
             <UList>
-              {
-                recFic.map((book, i) => {
-                  return (
-                    <li key={i}>
-                      <Text>
-                        <ExtLink
-                          href={book.url}
-                          td="none"
-                        >
-                          {book.title}
-                        </ExtLink>
-                      </Text>
-                    </li>
-                  )
-                })
-              }
+              {recFic.map((book, i) => {
+                return (
+                  <li key={i}>
+                    <Text>
+                      <ExtLink href={book.url} td="none">
+                        {book.title}
+                      </ExtLink>
+                    </Text>
+                  </li>
+                )
+              })}
             </UList>
           </Box>
 
@@ -114,11 +109,9 @@ export default function Reading() {
             <RecHeading>other</RecHeading>
           </Box>
         </Flex>
-
       </Section>
 
       <PageList section="reviews" />
-
     </Layout>
   )
 }

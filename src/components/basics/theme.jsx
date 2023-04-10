@@ -13,10 +13,12 @@ const theme = {
     black: "#16171A",
     lightGray: "#A9ACB5",
     lightestGray: "#EDF2F7",
+    yellow: "#FFD148",
   },
   fonts: {
     mono: "SF Mono, Menlo, Source Pro Code, monospace",
-    serif: "Georgia, serif, system-ui",
+    serif: "Playfair Display, Georgia, serif, system-ui",
+    // consider Playfair Display as a serif font
   },
   mediaQueries: {
     mobile: `@media screen and (min-width: ${breakpoints[0]})`,

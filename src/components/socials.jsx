@@ -1,26 +1,28 @@
 import React from "react"
 import { withTheme } from "styled-components"
 
-import { Box, ExtLink, Text } from "../components/basics"
+import { Box, ExtLink, Link, Text } from "../components/basics"
+import resume from "../../assets/resume.pdf"
 
 const Socials = (props) => {
   return (
-    <Box>
-      <Text fontFamily={props.theme.fonts.mono} fontSize="12px">
+    <Box mb={16}>
+      <Text fontSize="12px">
         <ExtLink 
           href="https://github.com/jenny-chen"
-          style={{ color: "RGB(36, 41, 46)", marginRight: "5px" }}
+          style={{ marginRight: "5px" }}
           td="none"
         >
           github
         </ExtLink>
         <ExtLink
           href="https://www.linkedin.com/in/linkjennychen/"
-          style={{ color: "RGB(17, 120, 179)" }}
+          style={{ marginRight: "5px" }}
           td="none"
         >
           linkedin
         </ExtLink>
+        <Link to={resume} td="none">resume</Link>
       </Text>
     </Box>
   )

@@ -46,6 +46,7 @@ class HongKongMap extends Component {
     var selected = this.state.title_loc
 
     const visited = ["Central and Western", "Eastern", "Wan Chai", "Islands", "Southern", "Yau Tsim Mong", "Kowloon City", "Tuen Mun", "Tsuen Wan", "Sham Shui Po"]
+    const selectedColor = "#FFD148";
     const visitedColor = "#f5d1c6"
     const nonVisitedColor = "white"
 
@@ -77,7 +78,7 @@ class HongKongMap extends Component {
         .style("stroke-width", "0.6")
         .style("fill", function(e) {
           if (selected === e.properties.NAME_1) {
-            return "#334e70"
+            return selectedColor
           } else if (visited.includes(e.properties.NAME_1)) {
             return visitedColor
           } else {
@@ -94,7 +95,7 @@ class HongKongMap extends Component {
         })
         .on("mouseout", function(e) {
           if (e.properties.NAME_1 === selected) {
-            d3.select(this).style("fill", "#334e70")
+            d3.select(this).style("fill", selectedColor)
           } else if (visited.includes(e.properties.NAME_1)) {
             d3.select(this).style("fill", visitedColor)
           } else {
@@ -113,7 +114,7 @@ class HongKongMap extends Component {
                 }
               })
             setTitleLoc(e.properties.NAME_1, e.properties.NAME_2)
-            d3.select(this).style("fill", "#334e70")
+            d3.select(this).style("fill", selectedColor)
           }
         })
     });

@@ -3,7 +3,6 @@ path: "/projectcsgirls"
 title: "ProjectCSGirls"
 time: "Sept 2017 - Feb 2018"
 location: "Toronto, ON"
-technologies: "N/A"
 ---
 
 ### summary

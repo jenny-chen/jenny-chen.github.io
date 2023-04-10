@@ -6,6 +6,8 @@ const PageLink = styled(Link)`
   margin-right: 10px;
   text-decoration: none;
   font-weight: ${props => props.bold};
+  text-decoration: ${props => props.underline ? "underline" : "none"};
+  text-decoration-color: ${props => props.theme.colors.yellow};
   
   &:hover {
     text-decoration: underline;
