@@ -55,6 +55,7 @@ const Sidebar = ({ page, tab }) => {
   const travelsPaths = ["/hongkong", "/japan"]
 
   const experiencesPages = [
+    "Figma W2023",
     "Figma S2022",
     "Faire",
     "Synqrinus",
@@ -63,6 +64,7 @@ const Sidebar = ({ page, tab }) => {
     "ProjectCSGirls",
   ]
   const experiencesPaths = [
+    "/figma-W2023",
     "/figma-S2022",
     "/faire",
     "/synqrinus",
