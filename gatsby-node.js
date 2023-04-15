@@ -54,7 +54,7 @@ exports.createPages = async ({ actions, graphql }) => {
       })
     }
 
-    if (node.fileAbsolutePath.includes("src/essays")) {
+    if (node.fileAbsolutePath.includes("src/writing")) {
       createPage({
         path: node.frontmatter.path,
         component: essayLayout,

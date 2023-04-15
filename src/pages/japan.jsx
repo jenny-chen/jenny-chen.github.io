@@ -9,18 +9,12 @@ import PhotoModal from "../components/photoModal"
 
 import { japanPhotoInformation } from "../images/japan/info"
 
-import {
-  Box,
-  Flex,
-  Text,
-  Title,
-} from "../components/basics"
+import { Box, Flex, Link, Text, Title } from "../components/basics"
 
 export default function Japan({ data }) {
-
-  const [loc, setLoc] = useState("Japan");
-  const [openPhoto, setOpenPhoto] = useState({});
-  const [modalHidden, setModalHidden] = useState(true);
+  const [loc, setLoc] = useState("Japan")
+  const [openPhoto, setOpenPhoto] = useState({})
+  const [modalHidden, setModalHidden] = useState(true)
 
   var photos = {}
   var allPhotos = data.allFile.edges
@@ -29,30 +23,39 @@ export default function Japan({ data }) {
     var name = allPhotos[i].node.name
     var place = name.split("_")[0]
     if (place in photos) {
-      photos[place].push({name: name,
-                          image: getImage(allPhotos[i].node.childImageSharp)})
+      photos[place].push({
+        name: name,
+        image: getImage(allPhotos[i].node.childImageSharp),
+      })
     } else {
-      photos[place] = [{name: name,
-                        image: getImage(allPhotos[i].node.childImageSharp)}]
+      photos[place] = [
+        { name: name, image: getImage(allPhotos[i].node.childImageSharp) },
+      ]
     }
   }
 
   return (
     <Layout tab="Japan">
       <SEO title="Japan" />
-      <Title>Japan</Title>
+      <Title>
+        <Link href="/writing/visualizing-japan">Japan</Link>
+      </Title>
       <Text description>August 2019</Text>
 
-      <JapanMap setLoc={(newLoc) => setLoc(newLoc)}  />
+      <JapanMap setLoc={newLoc => setLoc(newLoc)} />
 
       <Flex boxWidth="49.5%" photos>
         {loc !== "Japan" &&
           photos[loc.split(" ")[0].toLowerCase()].map((photo, index) => {
             return (
-              <Box key={photo.name} photo onClick={e => {
-                setOpenPhoto(photo)
-                setModalHidden(false)
-              }}>
+              <Box
+                key={photo.name}
+                photo
+                onClick={e => {
+                  setOpenPhoto(photo)
+                  setModalHidden(false)
+                }}
+              >
                 <GatsbyImage
                   alt={photo.name}
                   key={photo.name}
@@ -61,18 +64,22 @@ export default function Japan({ data }) {
                 />
               </Box>
             )
-          })
-        }
+          })}
       </Flex>
 
       <PhotoModal
-        text="modal text" 
+        text="modal text"
         hidden={modalHidden}
         photo={openPhoto}
-        setModalHidden={(newModalHidden) => setModalHidden(newModalHidden)}
-        info={japanPhotoInformation[openPhoto.name] || {date: "", location: "", description: [""]}}
+        setModalHidden={newModalHidden => setModalHidden(newModalHidden)}
+        info={
+          japanPhotoInformation[openPhoto.name] || {
+            date: "",
+            location: "",
+            description: [""],
+          }
+        }
       />
-      
     </Layout>
   )
 }
