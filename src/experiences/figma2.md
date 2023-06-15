@@ -8,4 +8,4 @@ technologies: "C++, TypeScript, React"
 
 ### summary
 
-In the process!
+Coming soon, hopefully.

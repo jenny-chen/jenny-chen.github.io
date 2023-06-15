@@ -55,6 +55,7 @@ const Sidebar = ({ page, tab }) => {
   const travelsPaths = ["/hongkong", "/japan"]
 
   const experiencesPages = [
+    "Riot Games",
     "Figma W2023",
     "Figma S2022",
     "Faire",
@@ -64,6 +65,7 @@ const Sidebar = ({ page, tab }) => {
     "ProjectCSGirls",
   ]
   const experiencesPaths = [
+    "/riotgames",
     "/figma-W2023",
     "/figma-S2022",
     "/faire",
@@ -93,13 +95,14 @@ const Sidebar = ({ page, tab }) => {
               </Highlight>
             </Header>
             <Text>
-              I'm a 4th year software engineering student at the{" "}
+              I'm a 4th year computer science student at the{" "}
               <ExtLink href="https://www.uwaterloo.ca/">
                 University of Waterloo
               </ExtLink>
-              . I'm currently a software engineering intern on the FigJam team
-              at Figma. When I'm not studying or coding, you can usually catch
-              me reading, travelling, working out, or, more likely, eating.
+              . I'm currently a software engineering intern on the TFT gameplay
+              team at Riot Games. When I'm not studying or coding, you can
+              usually catch me reading, travelling, working out, or, more
+              likely, eating.
             </Text>
           </Box>
 
