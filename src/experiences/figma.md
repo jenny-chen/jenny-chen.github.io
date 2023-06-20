@@ -14,7 +14,7 @@ It was a great experience, one in which I got to witness the entirety of the eng
 
 ### high-level plan
 
-FigJam, as a tool, is already inherently open-ended. It's an infinite canvas and you can do pretty much whatever you want on it. So planning a feature is sometimes just as open-ended. There are so many different ways one can vote and that was one of our early decisions we had to make: whether we wanted to use stamp-based voting (which was already people's default, just +1 or hearting whatever their hearts desired), or to create some new voting specific primitive. Our designer considered both concepts and we would go back and forth on this decision for a while.
+FigJam, as a tool, is inherently open-ended. It's an infinite canvas and you can do pretty much whatever you want on it. So planning a feature is sometimes just as open-ended. There are so many different ways one can vote and that was one of our early decisions we had to make: whether we wanted to use stamp-based voting (which was already people's default, just +1 or hearting whatever their hearts desired), or to create some new voting specific primitive. Our designer considered both concepts and we would go back and forth on this decision for a while.
 
 On the engineering side, we mainly wanted to explore different implementations to try to understand the trade-offs and also difficulty of each approach. Stamps were easier to since they already existed so that's what we considered at first. For example, counting the number of stamps on the canvas, and then on certain objects, etc. We eventually did decide to go with stamps so it ended up paying off!
 
