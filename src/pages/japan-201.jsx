@@ -26,89 +26,89 @@ export default function Writing() {
     {
       question: "百円で何が買えますか。",
       translation: "What can you buy for ¥100?",
-      audio: "百円で何が買えますか .m4a",
+      audio: "lesson13-2.m4a",
     },
     {
       question: "どこにいってみたいですか。どうしてですか。",
       translation: "Where do you want to go? Why?",
-      audio: "どこにいってみたいですか どうしてですか.m4a",
+      audio: "lesson13-3.m4a",
     },
     {
       question: "子供の時、何がしてみたかったですか。",
       translation: "When you were a child, what did you want to try to do?",
-      audio: "子供の時 何がしてみたかったですか .m4a",
+      audio: "lesson13-4.m4a",
     },
     {
       question: "今、何がしてみたいですか。",
       translation: "What do you want to try to do now?",
-      audio: "今 何がしてみたいですか .m4a",
+      audio: "lesson13-5.m4a",
     },
     {
       question: "一日に何時間ぐらい勉強しますか。",
       translation: "About how many hours do you study in a day?",
-      audio: "一日に何時間ぐらい勉強しますか .m4a",
+      audio: "lesson13-6.m4a",
     },
     {
       question: "一か月にいくらぐらい使いますか。",
       translation: "About how much do you spend in a month?",
-      audio: "一か月にいくらぐらい使いますか .m4a",
+      audio: "lesson13-7.m4a",
     },
   ]
   const Lesson14 = [
     {
       question: "去年の誕生日に何をもらいましたか。",
       translation: "Last year, what did you receive for your birthday?",
-      audio: "去年の誕生日に何をもらいましたか .m4a",
+      audio: "lesson14-1.m4a",
     },
     {
       question: "家族の誕生日に何をあげましたか。",
       translation: "For your family's birthday, what did you give?",
-      audio: "家族の誕生日に何をあげましたか .m4a",
+      audio: "lesson14-2.m4a",
     },
     {
       question: "友達の誕生日に何をあげたいですか。",
       translation: "For your friend's birthday, what do you want to give?",
-      audio: "友達の誕生日に何をあげたいですか .m4a",
+      audio: "lesson14-3.m4a",
     },
     {
       question:
         "バレンタインデーに何かあげたことがありますか。何をあげましたか。",
       translation:
         "Have you ever given something for Valentine's Day? What did you give?",
-      audio: "バレンタインデーに何かあげたことがありま.m4a",
+      audio: "lesson14-4.m4a",
     },
     {
       question:
         "バレンタインデーに何かもらったことがありますか。何をもらいましたか。",
       translation:
         "Have you ever received something for Valentine's Day? What did you receive?",
-      audio: "バレンタインデーに何かもらったことがあり.m4a",
+      audio: "lesson14-5.m4a",
     },
     {
       question: "あんたの国ではお正月に何かあげますか。誰が誰にあげますか。",
       translation:
         "In your country, do you give something for New Year's? Who gives to who?",
-      audio: "あんたの国ではお正月に何かあげますか 誰.m4a",
+      audio: "lesson14-6.m4a",
     },
     {
       question: "一番うれしかったプレゼントは何ですか。だれにもらいましたか。",
       translation:
         "What was the best present you received? Who gave it to you?",
-      audio: "一番うれしかったプレゼントは何ですか だ.m4a",
+      audio: "lesson14-7.m4a",
     },
     {
       question:
         "一番うれしくなかったプレゼントは何ですか。誰にもらいましたか。",
       translation:
         "What was the worst present you received? Who gave it to you?",
-      audio: "一番うれしくなかったプレゼントは何ですか.m4a",
+      audio: "lesson14-8.m4a",
     },
   ]
   const Lesson15 = [
     {
       question: "週末何をしようと思っていますか。",
       translation: "What are you planning to do this weekend?",
-      audio: "週末何をしようと思っていますか .m4a",
+      audio: "lesson15-1.m4a",
     },
   ]
   const Lesson16 = [
@@ -116,66 +116,66 @@ export default function Writing() {
       question: "今度の母の日/父の日に何をしてあげようと思いますか。",
       translation:
         "What are you planning to do (as a favour) for Mother's/Father's Day?",
-      audio: "今度の母の日 父の日に何をしてあげようと.m4a",
+      audio: "lesson16-1.m4a",
     },
     {
       question: "子供の時、家族は何をしてくれましたか。",
       translation: "When you were a child, what did your family do for you?",
-      audio: "子供の時 家族は何をしてくれましたか .m4a",
+      audio: "lesson16-2.m4a",
     },
     {
       question: "彼/彼女/パートナーに何をしてもらいたいですか。",
       translation: "What do you want your partner to do for you?",
-      audio: "彼 彼女 パートナーに何をしてもらいたい.m4a",
+      audio: "lesson16-3.m4a",
     },
     {
       question: "家族に何をしてもらいたいですか。",
       translation: "What do you want your family to do for you?",
-      audio: "家族に何をしてもらいたいですか .m4a",
+      audio: "lesson16-4.m4a",
     },
     {
       question: "友達が落ち込んでいます。何をしてあげますか。",
       translation:
         "Your friend is feeling down/depressed. What do you do for them?",
-      audio: "友達が落ち込んでいます 何をしてあげます.m4a",
+      audio: "lesson16-5.m4a",
     },
     {
       question: "病気の時、友達に何をしてもらいたいですか。",
       translation:
         "When you are sick, what do you want your friends to do for you?",
-      audio: "病気の時 友達に何をしてもらいたいですか.m4a",
+      audio: "lesson16-6.m4a",
     },
   ]
   const Lesson16B = [
     {
       question: "どんな時、学校をサボりますか。",
       translation: "When do you skip school?",
-      audio: "どんな時 学校をサボりますか .m4a",
+      audio: "lesson16B-1.m4a",
     },
     {
       question: "どんな時、親に電話しますか。",
       translation: "When do you call your parents?",
-      audio: "どんな時 親に電話しますか .m4a",
+      audio: "lesson16B-2.m4a",
     },
     {
       question: "どんな時、うれしくなりますか。",
       translation: "When are you happy?",
-      audio: "どんな時 うれしくなりますか .m4a",
+      audio: "lesson16B-3.m4a",
     },
     {
       question: "どんな時、緊張しますか。",
       translation: "When are you nervous?",
-      audio: "どんな時 緊張しますか .m4a",
+      audio: "lesson16B-4.m4a",
     },
     {
       question: "どんな時、泣きましたか。",
       translation: "When did you cry?",
-      audio: "どんな時 泣きましたか .m4a",
+      audio: "lesson16B-5.m4a",
     },
     {
       question: "どんな時、感動しましたか。",
       translation: "When were you moved?",
-      audio: "どんな時 感動しましたか .m4a",
+      audio: "lesson16B-6.m4a",
     },
   ]
 
@@ -187,7 +187,7 @@ export default function Writing() {
     ["Lesson 16B", Lesson16B],
   ]
 
-  const [listLayout, setListLayout] = React.useState(false)
+  const [listLayout, setListLayout] = React.useState(true)
   const [lessonNum, setLessonNum] = React.useState(0)
   const [num, setNum] = React.useState(0)
   const lesson = Lessons[lessonNum][1]
