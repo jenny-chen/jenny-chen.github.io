@@ -52,9 +52,12 @@ export default function Reading() {
       <SEO title="Reading" />
       <Title>Reading</Title>
 
-      <ReadingGraph year="2022" />
+      <ReadingGraph year="2023" />
 
       <Text>
+        <PaddedLink td="none" to="/reading-list-2023">
+          Reading List 2023
+        </PaddedLink>
         <PaddedLink td="none" to="/reading-list-2022">
           Reading List 2022
         </PaddedLink>
