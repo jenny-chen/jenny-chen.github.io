@@ -4,14 +4,14 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layouts/layout"
 import SEO from "../components/seo"
-import JapanMap from "../components/maps/japan"
+import JapanMap2023 from "../components/maps/japan-2023"
 import PhotoModal from "../components/photoModal"
 
-import { japanPhotoInformation } from "../images/japan-2019/info"
+import { japanPhotoInformation } from "../images/japan-2023/info"
 
 import { Box, Flex, Link, Text, Title } from "../components/basics"
 
-export default function Japan({ data }) {
+export default function Japan2023({ data }) {
   const [loc, setLoc] = useState("Japan")
   const [openPhoto, setOpenPhoto] = useState({})
   const [modalHidden, setModalHidden] = useState(true)
@@ -34,15 +34,15 @@ export default function Japan({ data }) {
     }
   }
 
-  return (
-    <Layout tab="Japan">
-      <SEO title="Japan" />
-      <Title>
-        <Link href="/writing/visualizing-japan">Japan</Link>
-      </Title>
-      <Text description>August 2019</Text>
+  console.log(openPhoto.name)
 
-      <JapanMap setLoc={newLoc => setLoc(newLoc)} />
+  return (
+    <Layout tab="Japan 2023">
+      <SEO title="Japan 2023" />
+      <Title>Japan 2023</Title>
+      <Text description>April 2023</Text>
+
+      <JapanMap2023 setLoc={newLoc => setLoc(newLoc)} />
 
       <Flex boxWidth="49.5%" photos>
         {loc !== "Japan" &&
@@ -85,25 +85,22 @@ export default function Japan({ data }) {
 }
 
 export const pageQuery = graphql`
-         query JapanPhotos {
-           allFile(
-             filter: {
-               extension: { regex: "/(jpg)|(jpeg)|(png)/" }
-               dir: { regex: "/images/japan-2019/" }
-             }
-           ) {
-             edges {
-               node {
-                 id
-                 name
-                 childImageSharp {
-                   gatsbyImageData(
-                     placeholder: BLURRED
-                     formats: [AUTO, WEBP, AVIF]
-                   )
-                 }
-               }
-             }
-           }
-         }
-       `
+  query Japan2023Photos {
+    allFile(
+      filter: {
+        extension: { regex: "/(jpg)|(jpeg)|(png)/" }
+        dir: { regex: "/images/japan-2023/" }
+      }
+    ) {
+      edges {
+        node {
+          id
+          name
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+          }
+        }
+      }
+    }
+  }
+`

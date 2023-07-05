@@ -51,8 +51,8 @@ const Header = styled(Text)`
 `
 
 const Sidebar = ({ page, tab }) => {
-  const travelsPages = ["Hong Kong", "Japan"]
-  const travelsPaths = ["/hongkong", "/japan"]
+  const travelsPages = ["Japan 2023", "Hong Kong", "Japan"]
+  const travelsPaths = ["/japan-2023", "/hongkong", "/japan"]
 
   const experiencesPages = [
     "Riot Games",
