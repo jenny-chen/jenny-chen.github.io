@@ -100,7 +100,8 @@ export default function JapanOct2023({ data }) {
     <Layout tab="Japan (Oct) 2023">
       <SEO title="Japan (Oct) 2023" />
       <Title>Japan (Oct) 2023</Title>
-      <Text description>Unplanned trip back to Japan</Text>
+      <Text description>Select photos from an unplanned trip to Japan</Text>
+
       {/* DATE BUTTONS */}
       {dates.map((date, index) => {
         return (
