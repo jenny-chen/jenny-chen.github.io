@@ -51,8 +51,8 @@ const Header = styled(Text)`
 `
 
 const Sidebar = ({ page, tab }) => {
-  const travelsPages = ["Japan 2023", "Hong Kong", "Japan"]
-  const travelsPaths = ["/japan-2023", "/hongkong", "/japan"]
+  const travelsPages = ["Japan (Oct) 2023", "Japan 2023", "Hong Kong", "Japan"]
+  const travelsPaths = ["/japan-oct-2023", "/japan-2023", "/hongkong", "/japan"]
 
   const experiencesPages = [
     "Riot Games",
@@ -99,10 +99,10 @@ const Sidebar = ({ page, tab }) => {
               <ExtLink href="https://www.uwaterloo.ca/">
                 University of Waterloo
               </ExtLink>
-              . I'm currently a software engineering intern on the TFT gameplay
-              team at Riot Games. When I'm not studying or coding, you can
-              usually catch me reading, travelling, working out, or, more
-              likely, eating.
+              . I'm currently finishing up my last study term at school and
+              getting ready to start full time at Figma in 2024. When I'm not
+              studying or coding, you can usually catch me reading, travelling,
+              working out, or, more likely, eating.
             </Text>
           </Box>
 
