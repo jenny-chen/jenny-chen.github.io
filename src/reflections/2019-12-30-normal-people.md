@@ -1,5 +1,5 @@
 ---
-path: "/reviews/normal-people"
+path: "/reflections/normal-people"
 date: 2019-12-30
 author: "Sally Rooney"
 title: "Normal People"

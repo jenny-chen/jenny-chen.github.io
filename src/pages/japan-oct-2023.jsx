@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 
 import { japanPhotoInformation } from "../images/japan-oct-2023/info"
 
-import { Box, Flex, Heading, Text, Title } from "../components/basics"
+import { Box, Flex, Text, Title } from "../components/basics"
 
 const PhotosFlex = styled(Flex)`
   display: flex;

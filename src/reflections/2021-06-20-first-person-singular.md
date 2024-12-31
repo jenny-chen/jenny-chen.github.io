@@ -1,5 +1,5 @@
 ---
-path: "/reviews/first-person-singular"
+path: "/reflections/first-person-singular"
 date: 2021-06-20
 author: Haruki Murakami
 title: "First Person Singular"

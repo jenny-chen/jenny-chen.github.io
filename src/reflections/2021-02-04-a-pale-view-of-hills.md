@@ -1,5 +1,5 @@
 ---
-path: "/reviews/a-pale-view-of-hills"
+path: "/reflections/a-pale-view-of-hills"
 date: 2021-02-04
 author: "Kazuo Ishiguro"
 title: "A Pale View of Hills"

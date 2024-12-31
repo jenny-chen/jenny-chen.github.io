@@ -38,7 +38,7 @@ exports.createPages = async ({ actions, graphql }) => {
   }
 
   result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    if (node.fileAbsolutePath.includes("src/reviews")) {
+    if (node.fileAbsolutePath.includes("src/reflections")) {
       createPage({
         path: node.frontmatter.path,
         component: readingLayout,

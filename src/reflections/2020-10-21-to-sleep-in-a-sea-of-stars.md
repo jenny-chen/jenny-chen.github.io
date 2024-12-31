@@ -1,5 +1,5 @@
 ---
-path: "/reviews/to-sleep-in-a-sea-of-stars"
+path: "/reflections/to-sleep-in-a-sea-of-stars"
 date: 2020-10-21 
 author: Christopher Paolini
 title: "To Sleep in a Sea of Stars"

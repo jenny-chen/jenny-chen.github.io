@@ -1,5 +1,5 @@
 ---
-path: "/reviews/the-goldfinch"
+path: "/reflections/the-goldfinch"
 date: 2021-03-08
 author: Donna Tartt
 title: "The Goldfinch"

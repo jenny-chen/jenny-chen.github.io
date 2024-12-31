@@ -13,11 +13,11 @@ import {
 export default function PageList({ section }) {
     
   return (
-    <StaticQuery 
+    <StaticQuery
       query={graphql`
         query IndexQuery {
-          reviews: allMarkdownRemark(
-            filter: {fileAbsolutePath: {regex: "/reviews/"}}, 
+          reflections: allMarkdownRemark(
+            filter: { fileAbsolutePath: { regex: "/reflections/" } }
             sort: { order: DESC, fields: [frontmatter___date] }
           ) {
             edges {
@@ -34,7 +34,7 @@ export default function PageList({ section }) {
           }
 
           poems: allMarkdownRemark(
-            filter: {fileAbsolutePath: {regex: "/poems/"}}, 
+            filter: { fileAbsolutePath: { regex: "/poems/" } }
             sort: { order: DESC, fields: [frontmatter___date] }
           ) {
             edges {
@@ -51,7 +51,7 @@ export default function PageList({ section }) {
           }
 
           essays: allMarkdownRemark(
-            filter: {fileAbsolutePath: {regex: "/essays/"}}, 
+            filter: { fileAbsolutePath: { regex: "/essays/" } }
             sort: { order: DESC, fields: [frontmatter___date] }
           ) {
             edges {
@@ -68,8 +68,8 @@ export default function PageList({ section }) {
           }
         }
       `}
-      render={data => <Helper data={data} section={section} /> }
-    /> 
+      render={data => <Helper data={data} section={section} />}
+    />
   )
 }
 

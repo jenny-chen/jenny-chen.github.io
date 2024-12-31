@@ -124,8 +124,18 @@ class ReadingGraph extends Component {
           .attr("cx", rangePoints[i])
           .attr("cy", yRangePoints[selectedData.books])
         focusText
-          .html(`${mouseMonth} - ${selectedData.books} ${selectedData.books > 1 ? "books" : "book"}`)
-          .attr("x", (i >= domain.length-2 && domain.length > 2) || i >= domain.length-1 ? rangePoints[i]-140 : rangePoints[i]+15)
+          .html(
+            `${mouseMonth} - ${selectedData.books} ${
+              selectedData.books === 1 ? "book" : "books"
+            }`
+          )
+          .attr(
+            "x",
+            (i >= domain.length - 2 && domain.length > 2) ||
+              i >= domain.length - 1
+              ? rangePoints[i] - 140
+              : rangePoints[i] + 15
+          )
           .attr("y", yRangePoints[selectedData.books])
       }
 

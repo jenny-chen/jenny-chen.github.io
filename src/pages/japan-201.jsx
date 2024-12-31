@@ -5,7 +5,6 @@ import Layout from "../components/layouts/layout"
 import SEO from "../components/seo"
 
 import { Heading, Text, Title } from "../components/basics"
-import { first } from "../../static/japanAudio/lesson13-1.m4a"
 
 const HidingText = styled(Text)`
   background: black;

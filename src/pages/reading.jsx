@@ -31,30 +31,71 @@ const PaddedLink = styled(Link)`
 
 export default function Reading() {
   const recNonFic = [
-    {title: "Becoming", url: "https://www.goodreads.com/book/show/38746485-becoming"},
-    {title: "Educated", url: "https://www.goodreads.com/book/show/35133922-educated"},
-    {title: "Invisible Women", url: "https://www.goodreads.com/book/show/41104077-invisible-women"},
-    {title: "Maybe You Should Talk to Someone", url: "https://www.goodreads.com/book/show/37570546-maybe-you-should-talk-to-someone"},
-    {title: "Non-Violent Communication", url: "https://www.goodreads.com/book/show/71730.Nonviolent_Communication"},
-    {title: "Prepared", url: "https://www.goodreads.com/en/book/show/43422738-prepared"}
+    {
+      title: "Becoming",
+      url: "https://www.goodreads.com/book/show/38746485-becoming",
+    },
+    {
+      title: "Educated",
+      url: "https://www.goodreads.com/book/show/35133922-educated",
+    },
+    {
+      title: "Invisible Women",
+      url: "https://www.goodreads.com/book/show/41104077-invisible-women",
+    },
+    {
+      title: "Maybe You Should Talk to Someone",
+      url:
+        "https://www.goodreads.com/book/show/37570546-maybe-you-should-talk-to-someone",
+    },
+    {
+      title: "Non-Violent Communication",
+      url: "https://www.goodreads.com/book/show/71730.Nonviolent_Communication",
+    },
   ]
   const recFic = [
-    {title: "Airborn", url: "https://www.goodreads.com/book/show/428042.Airborn"},
-    {title: "Breasts and Eggs", url: "https://www.goodreads.com/book/show/50736031-breasts-and-eggs"},
-    {title: "Children of Time", url: "https://www.goodreads.com/series/247630-children-of-time"},
-    {title: "Life of Pi", url: "https://www.goodreads.com/book/show/4214.Life_of_Pi"},
-    {title: "The Long Way to a Small, Angry Planet", url: "https://www.goodreads.com/book/show/22733729-the-long-way-to-a-small-angry-planet"},
-    {title: "The Luminaries", url: "https://www.goodreads.com/book/show/17333230-the-luminaries"},
-    {title: "The Three-Body Problem", url: "https://www.goodreads.com/book/show/20518872-the-three-body-problem"},
+    {
+      title: "Airborn",
+      url: "https://www.goodreads.com/book/show/428042.Airborn",
+    },
+    {
+      title: "Breasts and Eggs",
+      url: "https://www.goodreads.com/book/show/50736031-breasts-and-eggs",
+    },
+    {
+      title: "Children of Time",
+      url: "https://www.goodreads.com/series/247630-children-of-time",
+    },
+    {
+      title: "Life of Pi",
+      url: "https://www.goodreads.com/book/show/4214.Life_of_Pi",
+    },
+    {
+      title: "The Long Way to a Small, Angry Planet",
+      url:
+        "https://www.goodreads.com/book/show/22733729-the-long-way-to-a-small-angry-planet",
+    },
+    {
+      title: "The Luminaries",
+      url: "https://www.goodreads.com/book/show/17333230-the-luminaries",
+    },
+    {
+      title: "The Three-Body Problem",
+      url:
+        "https://www.goodreads.com/book/show/20518872-the-three-body-problem",
+    },
   ]
   return (
     <Layout tab="Reading">
       <SEO title="Reading" />
       <Title>Reading</Title>
 
-      <ReadingGraph year="2023" />
+      <ReadingGraph year="2024" />
 
       <Text>
+        <PaddedLink td="none" to="/reading-list-2024">
+          Reading List 2024
+        </PaddedLink>
         <PaddedLink td="none" to="/reading-list-2023">
           Reading List 2023
         </PaddedLink>
@@ -108,13 +149,11 @@ export default function Reading() {
             </UList>
           </Box>
 
-          <Box>
-            <RecHeading>other</RecHeading>
-          </Box>
+          <Box>{/* <RecHeading>other</RecHeading> */}</Box>
         </Flex>
       </Section>
 
-      <PageList section="reviews" />
+      <PageList section="reflections" />
     </Layout>
   )
 }

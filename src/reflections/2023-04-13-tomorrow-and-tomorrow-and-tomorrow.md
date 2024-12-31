@@ -1,5 +1,5 @@
 ---
-path: "/reviews/tomorrow-and-tomorrow-and-tomorrow"
+path: "/reflections/tomorrow-and-tomorrow-and-tomorrow"
 date: 2023-04-13
 author: Gabrielle Zevin
 title: "Tomorrow and Tomorrow and Tomorrow"

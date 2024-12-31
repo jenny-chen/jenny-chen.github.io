@@ -50,7 +50,7 @@ const Header = styled(Text)`
   margin-bottom: 8px;
 `
 
-const Sidebar = ({ page, tab }) => {
+const Sidebar = ({ tab }) => {
   const travelsPages = ["Japan (Oct) 2023", "Japan 2023", "Hong Kong", "Japan"]
   const travelsPaths = ["/japan-oct-2023", "/japan-2023", "/hongkong", "/japan"]
 
@@ -95,52 +95,54 @@ const Sidebar = ({ page, tab }) => {
               </Highlight>
             </Header>
             <Text>
-              I'm a 4th year computer science student at the{" "}
+              I'm currently working fulltime as a software engineer at Figma in
+              San Francisco. I recently graduated from the
               <ExtLink href="https://www.uwaterloo.ca/">
-                University of Waterloo
+                {" "}
+                University of Waterloo{" "}
               </ExtLink>
-              . I'm currently finishing up my last study term at school and
-              getting ready to start full time at Figma in 2024. When I'm not
-              studying or coding, you can usually catch me reading, travelling,
-              working out, or, more likely, eating.
+              in 2024 where I studied computer science. When not at work, you
+              can usually catch me running, travelling, or reading.
             </Text>
           </Box>
 
-          <Box mb={32}>
+          <Box mt={16}>
+            <Flex mt={16}>
+              <Flex flexDirection="column" flex="1" justifyContent="flex-start">
+                <Header>Work</Header>
+                <PageLinksBox>
+                  {experiencesPages.length > 0 && (
+                    <PageLinks
+                      pages={experiencesPages}
+                      paths={experiencesPaths}
+                      tab={tab}
+                    />
+                  )}
+                </PageLinksBox>
+              </Flex>
+
+              <Flex flexDirection="column" flex="1" justifyContent="flex-start">
+                <Header>Travels</Header>
+                <PageLinksBox>
+                  {travelsPages.length > 0 && (
+                    <PageLinks
+                      pages={travelsPages}
+                      paths={travelsPaths}
+                      tab={tab}
+                    />
+                  )}
+                </PageLinksBox>
+              </Flex>
+            </Flex>
+          </Box>
+
+          <Box mt={16}>
             <Header>
               <Link to="/reading" td="none">
                 {tab === "Reading" ? <Highlight>Reading</Highlight> : "Reading"}
               </Link>
             </Header>
           </Box>
-
-          <Flex>
-            <Flex flexDirection="column" flex="1" justifyContent="flex-start">
-              <Header>Work</Header>
-              <PageLinksBox>
-                {experiencesPages.length > 0 && (
-                  <PageLinks
-                    pages={experiencesPages}
-                    paths={experiencesPaths}
-                    tab={tab}
-                  />
-                )}
-              </PageLinksBox>
-            </Flex>
-
-            <Flex flexDirection="column" flex="1" justifyContent="flex-start">
-              <Header>Travels</Header>
-              <PageLinksBox>
-                {travelsPages.length > 0 && (
-                  <PageLinks
-                    pages={travelsPages}
-                    paths={travelsPaths}
-                    tab={tab}
-                  />
-                )}
-              </PageLinksBox>
-            </Flex>
-          </Flex>
         </Flex>
       </Side>
     </Box>

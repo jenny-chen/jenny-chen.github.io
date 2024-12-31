@@ -1,5 +1,5 @@
 ---
-path: "/reviews/the-glass-castle"
+path: "/reflections/the-glass-castle"
 date: 2021-06-14
 author: Jeanette Walls
 title: "The Glass Castle"

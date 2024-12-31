@@ -1,5 +1,5 @@
 ---
-path: "/reviews/the-three-body-problem"
+path: "/reflections/the-three-body-problem"
 date: 2020-08-24
 author: Liu Cixin
 title: "The Three-Body Trilogy"

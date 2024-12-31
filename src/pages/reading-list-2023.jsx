@@ -24,6 +24,23 @@ export default function ReadingList2022() {
       title: "Black Cake",
       url: "https://www.goodreads.com/en/book/show/57926137",
     },
+    {
+      title: "The Food Lab",
+      url: "https://www.goodreads.com/book/show/24861842-the-food-lab",
+    },
+    {
+      title: "Sea of Tranquility",
+      url: "https://www.goodreads.com/book/show/58446227-sea-of-tranquility",
+    },
+    {
+      title: "Family Meal",
+      url: "https://www.goodreads.com/book/show/123414019-family-meal",
+    },
+    {
+      title: "All the Lovers in the Night",
+      url:
+        "https://www.goodreads.com/book/show/59336625-all-the-lovers-in-the-night",
+    },
     // {title: "", url: ""},
   ]
   const year = "2023"

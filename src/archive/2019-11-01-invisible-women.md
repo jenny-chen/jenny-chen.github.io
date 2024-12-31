@@ -1,5 +1,5 @@
 ---
-path: "/reviews/invisible-women"
+path: "/reflections/invisible-women"
 date: 2019-11-01
 author: "Caroline Criado-Perez"
 title: "Invisible Women"
