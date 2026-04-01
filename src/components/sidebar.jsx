@@ -89,38 +89,20 @@ const Sidebar = ({ tab }) => {
             <Header>
               Hi, I'm{" "}
               <Highlight>
-                <Link to="/about" td="none">
+                {/* <Link to="/about" td="none"> */}
                   Jenny
-                </Link>
+                {/* </Link> */}
               </Highlight>
             </Header>
             <Text>
               I'm currently working fulltime as a software engineer at Figma in
-              San Francisco. I recently graduated from the
-              <ExtLink href="https://www.uwaterloo.ca/">
-                {" "}
-                University of Waterloo{" "}
-              </ExtLink>
-              in 2024 where I studied computer science. When not at work, you
-              can usually catch me running, travelling, or reading.
+              San Francisco. I recently graduated from the University of Waterloo in 2024 where I studied computer science. When not at work, you
+              can usually catch me <Link to="/running">running</Link>, travelling, or reading.
             </Text>
           </Box>
 
           <Box mt={16}>
             <Flex mt={16}>
-              <Flex flexDirection="column" flex="1" justifyContent="flex-start">
-                <Header>Work</Header>
-                <PageLinksBox>
-                  {experiencesPages.length > 0 && (
-                    <PageLinks
-                      pages={experiencesPages}
-                      paths={experiencesPaths}
-                      tab={tab}
-                    />
-                  )}
-                </PageLinksBox>
-              </Flex>
-
               <Flex flexDirection="column" flex="1" justifyContent="flex-start">
                 <Header>Travels</Header>
                 <PageLinksBox>
@@ -133,16 +115,29 @@ const Sidebar = ({ tab }) => {
                   )}
                 </PageLinksBox>
               </Flex>
+
+              <Flex flexDirection="column" flex="1" justifyContent="flex-start">
+                <Header>
+                  <Link to="/reading" td="none">
+                    {tab === "Reading" ? <Highlight>Reading</Highlight> : "Reading"}
+                  </Link>
+                </Header>
+              </Flex>
             </Flex>
           </Box>
 
-          <Box mt={16}>
-            <Header>
-              <Link to="/reading" td="none">
-                {tab === "Reading" ? <Highlight>Reading</Highlight> : "Reading"}
-              </Link>
-            </Header>
-          </Box>
+          {/* <Box mt={16}>
+            <Header>Work</Header>
+            <PageLinksBox>
+              {experiencesPages.length > 0 && (
+                <PageLinks
+                  pages={experiencesPages}
+                  paths={experiencesPaths}
+                  tab={tab}
+                />
+              )}
+            </PageLinksBox>
+          </Box> */}
         </Flex>
       </Side>
     </Box>
