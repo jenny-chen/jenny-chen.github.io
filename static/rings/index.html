@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mood Rings</title>
+<style>
+  :root {
+    --bg: #161616;
+    --panel: #1e1e1e;
+    --text: #e8e8e8;
+    --muted: #888;
+    --border: rgba(255, 255, 255, 0.09);
+    --accent: rgba(255, 255, 255, 0.16);
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 16px 48px;
+    gap: 24px;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    user-select: none;
+  }
+  header h1 {
+    font-size: 18px; font-weight: 500; letter-spacing: 0.3px;
+    margin: 0; min-width: 190px; text-align: center;
+  }
+  .nav-btn {
+    background: var(--panel); border: 1px solid var(--border); color: var(--text);
+    width: 34px; height: 34px; border-radius: 8px; font-size: 16px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .nav-btn:hover { background: #2a2a2a; border-color: var(--accent); }
+  .stage { position: relative; width: min(90vw, 540px); aspect-ratio: 1; }
+  svg { width: 100%; height: 100%; display: block; }
+  .hit { cursor: pointer; }
+  .hit:hover { stroke: rgba(255, 255, 255, 0.06); }
+  .info {
+    text-align: center; font-size: 13px; color: var(--muted);
+    min-height: 20px; display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .swatch {
+    width: 13px; height: 13px; border-radius: 3px;
+    border: 1px solid var(--border); display: inline-block; vertical-align: middle;
+  }
+  .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .tool-btn {
+    background: var(--panel); border: 1px solid var(--border); color: var(--text);
+    padding: 8px 16px; border-radius: 8px; font-size: 13px; cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .tool-btn:hover { background: #2a2a2a; border-color: var(--accent); }
+  .hint { font-size: 12px; color: #666; max-width: 420px; text-align: center; line-height: 1.5; }
+
+  /* ---- custom color picker ---- */
+  .pop-backdrop {
+    position: fixed; inset: 0; background: rgba(0, 0, 0, 0.35);
+    display: none; z-index: 50;
+  }
+  .pop-backdrop.open { display: block; }
+  .picker {
+    position: fixed; z-index: 51; width: 252px;
+    background: #242424; border: 1px solid var(--border); border-radius: 12px;
+    padding: 14px; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    display: none; user-select: none;
+  }
+  .picker.open { display: block; }
+  .picker-title { font-size: 12px; color: var(--muted); margin: 0 0 10px; }
+  .sv {
+    position: relative; width: 224px; height: 150px; border-radius: 8px;
+    cursor: crosshair; overflow: hidden;
+  }
+  .sv-thumb, .hue-thumb {
+    position: absolute; width: 14px; height: 14px; border-radius: 50%;
+    border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,0.4);
+    transform: translate(-50%, -50%); pointer-events: none;
+  }
+  .hue {
+    position: relative; width: 224px; height: 14px; border-radius: 7px; margin-top: 14px;
+    cursor: pointer;
+    background: linear-gradient(to right,
+      #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%,
+      #0000ff 67%, #ff00ff 83%, #ff0000 100%);
+  }
+  .hue-thumb { top: 50%; }
+  .picker-row { display: flex; align-items: center; gap: 8px; margin-top: 14px; }
+  .preview-swatch { width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border); flex: 0 0 auto; }
+  .hex-input {
+    flex: 1; background: #1a1a1a; border: 1px solid var(--border); color: var(--text);
+    border-radius: 6px; padding: 7px 9px; font-size: 13px; font-family: ui-monospace, monospace;
+    text-transform: uppercase; min-width: 0;
+  }
+  .hex-input:focus { outline: none; border-color: var(--accent); }
+  .picker-actions { display: flex; gap: 8px; margin-top: 12px; }
+  .picker-actions button {
+    flex: 1; padding: 7px; border-radius: 6px; font-size: 12px; cursor: pointer;
+    border: 1px solid var(--border); background: #2a2a2a; color: var(--text);
+  }
+  .picker-actions button:hover { border-color: var(--accent); }
+  .picker-actions .clear { color: #d98a8a; }
+</style>
+</head>
+<body>
+  <header>
+    <button class="nav-btn" id="prev" aria-label="Previous month">‹</button>
+    <h1 id="monthLabel"></h1>
+    <button class="nav-btn" id="next" aria-label="Next month">›</button>
+  </header>
+
+  <div class="stage">
+    <svg id="tree" viewBox="0 0 540 540"></svg>
+  </div>
+
+  <div class="info" id="info">Click a ring to set its color.</div>
+
+  <div class="toolbar">
+    <button class="tool-btn" id="today">Jump to today</button>
+    <button class="tool-btn" id="export">Export backup</button>
+    <button class="tool-btn" id="importBtn">Import backup</button>
+  </div>
+
+  <p class="hint">
+    Each ring is a day — day 1 in the center, growing outward.
+    Click anywhere on a day's ring (up to today) to pick a color; right-click a colored ring to clear it.
+    Data is saved in this browser only, so use Export to back up or move it.
+  </p>
+
+  <!-- custom color picker -->
+  <div class="pop-backdrop" id="backdrop"></div>
+  <div class="picker" id="picker">
+    <p class="picker-title" id="pickerTitle">Pick a color</p>
+    <div class="sv" id="sv"><div class="sv-thumb" id="svThumb"></div></div>
+    <div class="hue" id="hue"><div class="hue-thumb" id="hueThumb"></div></div>
+    <div class="picker-row">
+      <div class="preview-swatch" id="previewSwatch"></div>
+      <input class="hex-input" id="hexInput" maxlength="7" spellcheck="false" />
+    </div>
+    <div class="picker-actions">
+      <button class="clear" id="clearBtn">Clear day</button>
+      <button id="doneBtn">Done</button>
+    </div>
+  </div>
+
+  <input type="file" id="importFile" accept="application/json" style="display:none" />
+
+<script>
+(function () {
+  "use strict";
+
+  var STORAGE_KEY = "mood-rings-v1";
+  var MONTHS = ["January","February","March","April","May","June",
+                "July","August","September","October","November","December"];
+  var SVGNS = "http://www.w3.org/2000/svg";
+
+  var svg = document.getElementById("tree");
+  var monthLabel = document.getElementById("monthLabel");
+  var info = document.getElementById("info");
+  var importFile = document.getElementById("importFile");
+
+  // picker elements
+  var backdrop = document.getElementById("backdrop");
+  var picker = document.getElementById("picker");
+  var pickerTitle = document.getElementById("pickerTitle");
+  var svArea = document.getElementById("sv");
+  var svThumb = document.getElementById("svThumb");
+  var hueArea = document.getElementById("hue");
+  var hueThumb = document.getElementById("hueThumb");
+  var previewSwatch = document.getElementById("previewSwatch");
+  var hexInput = document.getElementById("hexInput");
+
+  var view = new Date(); view.setDate(1);
+  var selectedKey = null;
+  var hsv = { h: 0, s: 0, v: 0.53 }; // current picker state
+
+  // ---------- storage ----------
+  function loadData() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+    catch (e) { return {}; }
+  }
+  function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }
+  var data = loadData();
+
+  function pad(n) { return n < 10 ? "0" + n : "" + n; }
+  function keyFor(y, m, d) { return y + "-" + pad(m + 1) + "-" + pad(d); }
+  function startOfDay(dt) { return new Date(dt.getFullYear(), dt.getMonth(), dt.getDate()); }
+
+  // ---------- color math ----------
+  function hsvToRgb(h, s, v) {
+    h = h / 360; var i = Math.floor(h * 6), f = h * 6 - i;
+    var p = v * (1 - s), q = v * (1 - f * s), t = v * (1 - (1 - f) * s), r, g, b;
+    switch (i % 6) {
+      case 0: r = v; g = t; b = p; break;
+      case 1: r = q; g = v; b = p; break;
+      case 2: r = p; g = v; b = t; break;
+      case 3: r = p; g = q; b = v; break;
+      case 4: r = t; g = p; b = v; break;
+      default: r = v; g = p; b = q;
+    }
+    return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
+  }
+  function rgbToHsv(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b), d = max - min;
+    var h = 0, s = max === 0 ? 0 : d / max, v = max;
+    if (d !== 0) {
+      if (max === r) h = ((g - b) / d) % 6;
+      else if (max === g) h = (b - r) / d + 2;
+      else h = (r - g) / d + 4;
+      h *= 60; if (h < 0) h += 360;
+    }
+    return { h: h, s: s, v: v };
+  }
+  function toHex(n) { var s = n.toString(16); return s.length === 1 ? "0" + s : s; }
+  function hsvToHex(o) {
+    var rgb = hsvToRgb(o.h, o.s, o.v);
+    return "#" + toHex(rgb[0]) + toHex(rgb[1]) + toHex(rgb[2]);
+  }
+  function parseHex(str) {
+    str = str.trim().replace(/^#/, "");
+    if (/^[0-9a-fA-F]{3}$/.test(str)) str = str.split("").map(function (c) { return c + c; }).join("");
+    if (!/^[0-9a-fA-F]{6}$/.test(str)) return null;
+    return [parseInt(str.slice(0, 2), 16), parseInt(str.slice(2, 4), 16), parseInt(str.slice(4, 6), 16)];
+  }
+
+  // ---------- tree rendering ----------
+  function render() {
+    var year = view.getFullYear(), month = view.getMonth();
+    var daysInMonth = new Date(year, month + 1, 0).getDate();
+    var today = startOfDay(new Date());
+    monthLabel.textContent = MONTHS[month] + " " + year;
+
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+    var cx = 270, cy = 270, innerR = 26, outerR = 256;
+    var band = (outerR - innerR) / daysInMonth;
+
+    for (var d = 1; d <= daysInMonth; d++) {
+      var r = innerR + band * (d - 0.5);
+      var key = keyFor(year, month, d);
+      var isFuture = new Date(year, month, d) > today;
+      var color = data[key];
+
+      // visible ring
+      var ring = document.createElementNS(SVGNS, "circle");
+      ring.setAttribute("cx", cx); ring.setAttribute("cy", cy);
+      ring.setAttribute("r", r.toFixed(2));
+      ring.setAttribute("fill", "none");
+      ring.setAttribute("pointer-events", "none");
+      if (color) {
+        ring.setAttribute("stroke", color);
+        ring.setAttribute("stroke-width", (band * 0.92).toFixed(2));
+      } else {
+        ring.setAttribute("stroke", isFuture ? "rgba(255,255,255,0.045)" : "rgba(255,255,255,0.13)");
+        ring.setAttribute("stroke-width", "1.5");
+      }
+      svg.appendChild(ring);
+
+      // full-width invisible hit target for editable days
+      if (!isFuture) {
+        var hit = document.createElementNS(SVGNS, "circle");
+        hit.setAttribute("cx", cx); hit.setAttribute("cy", cy);
+        hit.setAttribute("r", r.toFixed(2));
+        hit.setAttribute("fill", "none");
+        hit.setAttribute("stroke", "transparent");
+        hit.setAttribute("stroke-width", Math.max(band, 7).toFixed(2));
+        hit.setAttribute("class", "hit");
+        var title = document.createElementNS(SVGNS, "title");
+        title.textContent = MONTHS[month] + " " + d + (color ? " — " + color : "");
+        hit.appendChild(title);
+        (function (k, dnum) {
+          hit.addEventListener("click", function (e) { openPicker(k, dnum, e); });
+          hit.addEventListener("contextmenu", function (e) { e.preventDefault(); clearDay(k); });
+        })(key, d);
+        svg.appendChild(hit);
+      }
+    }
+
+    var dot = document.createElementNS(SVGNS, "circle");
+    dot.setAttribute("cx", cx); dot.setAttribute("cy", cy);
+    dot.setAttribute("r", 4); dot.setAttribute("fill", "rgba(255,255,255,0.25)");
+    dot.setAttribute("pointer-events", "none");
+    svg.appendChild(dot);
+  }
+
+  // ---------- picker UI ----------
+  function refreshPickerUI() {
+    var hueColor = "hsl(" + hsv.h + ", 100%, 50%)";
+    svArea.style.backgroundColor = hueColor;
+    svArea.style.backgroundImage =
+      "linear-gradient(to top, #000, transparent), linear-gradient(to right, #fff, transparent)";
+    svThumb.style.left = (hsv.s * 100) + "%";
+    svThumb.style.top = ((1 - hsv.v) * 100) + "%";
+    hueThumb.style.left = (hsv.h / 360 * 100) + "%";
+    var hex = hsvToHex(hsv);
+    previewSwatch.style.background = hex;
+    if (document.activeElement !== hexInput) hexInput.value = hex.toUpperCase();
+  }
+
+  function applyColor() {
+    if (!selectedKey) return;
+    data[selectedKey] = hsvToHex(hsv);
+    saveData();
+    render();
+  }
+
+  function openPicker(key, dnum, evt) {
+    selectedKey = key;
+    pickerTitle.textContent = MONTHS[view.getMonth()] + " " + dnum;
+    var existing = data[key];
+    if (existing) {
+      var rgb = parseHex(existing);
+      if (rgb) hsv = rgbToHsv(rgb[0], rgb[1], rgb[2]);
+    }
+    refreshPickerUI();
+
+    backdrop.classList.add("open");
+    picker.classList.add("open");
+    // position near the click, clamped to viewport
+    var pw = 252, ph = picker.offsetHeight || 320, m = 10;
+    var x = (evt ? evt.clientX : window.innerWidth / 2) + 14;
+    var y = (evt ? evt.clientY : window.innerHeight / 2) - ph / 2;
+    x = Math.min(x, window.innerWidth - pw - m); x = Math.max(m, x);
+    y = Math.min(y, window.innerHeight - ph - m); y = Math.max(m, y);
+    picker.style.left = x + "px";
+    picker.style.top = y + "px";
+  }
+
+  function closePicker() {
+    backdrop.classList.remove("open");
+    picker.classList.remove("open");
+    selectedKey = null;
+  }
+
+  function clearDay(key) {
+    if (data[key]) { delete data[key]; saveData(); render(); }
+  }
+
+  // drag helpers
+  function dragSV(e) {
+    var rect = svArea.getBoundingClientRect();
+    var x = (e.clientX - rect.left) / rect.width;
+    var y = (e.clientY - rect.top) / rect.height;
+    hsv.s = Math.min(1, Math.max(0, x));
+    hsv.v = Math.min(1, Math.max(0, 1 - y));
+    refreshPickerUI(); applyColor();
+  }
+  function dragHue(e) {
+    var rect = hueArea.getBoundingClientRect();
+    var x = (e.clientX - rect.left) / rect.width;
+    hsv.h = Math.min(360, Math.max(0, x * 360));
+    refreshPickerUI(); applyColor();
+  }
+  function makeDraggable(el, handler) {
+    el.addEventListener("pointerdown", function (e) {
+      e.preventDefault(); el.setPointerCapture(e.pointerId); handler(e);
+      function move(ev) { handler(ev); }
+      function up(ev) {
+        el.releasePointerCapture(e.pointerId);
+        el.removeEventListener("pointermove", move);
+        el.removeEventListener("pointerup", up);
+      }
+      el.addEventListener("pointermove", move);
+      el.addEventListener("pointerup", up);
+    });
+  }
+  makeDraggable(svArea, dragSV);
+  makeDraggable(hueArea, dragHue);
+
+  hexInput.addEventListener("input", function () {
+    var rgb = parseHex(hexInput.value);
+    if (rgb) { hsv = rgbToHsv(rgb[0], rgb[1], rgb[2]); refreshPickerUI(); applyColor(); }
+  });
+
+  document.getElementById("doneBtn").addEventListener("click", closePicker);
+  document.getElementById("clearBtn").addEventListener("click", function () {
+    if (selectedKey) clearDay(selectedKey);
+    closePicker();
+  });
+  backdrop.addEventListener("click", closePicker);
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closePicker(); });
+
+  // ---------- month nav + tools ----------
+  document.getElementById("prev").addEventListener("click", function () { view.setMonth(view.getMonth() - 1); render(); });
+  document.getElementById("next").addEventListener("click", function () { view.setMonth(view.getMonth() + 1); render(); });
+  document.getElementById("today").addEventListener("click", function () { view = new Date(); view.setDate(1); render(); });
+
+  document.getElementById("export").addEventListener("click", function () {
+    var blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = "mood-rings-backup.json"; a.click();
+    URL.revokeObjectURL(url);
+  });
+  document.getElementById("importBtn").addEventListener("click", function () { importFile.click(); });
+  importFile.addEventListener("change", function () {
+    var file = importFile.files[0]; if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      try {
+        var imported = JSON.parse(reader.result);
+        if (imported && typeof imported === "object") {
+          Object.keys(imported).forEach(function (k) { data[k] = imported[k]; });
+          saveData(); render(); info.textContent = "Backup imported.";
+        }
+      } catch (e) { info.textContent = "Could not read that file."; }
+      importFile.value = "";
+    };
+    reader.readAsText(file);
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
