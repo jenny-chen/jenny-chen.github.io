@@ -17,36 +17,11 @@ const About = () => (
       I obtained most of my schooling before attending University.
     </Text>
 
-    <Text>
-      At home, I’m the middle child between two sisters, meaning I’ve never had
-      a shortage of people around. In between going on neighbourhood adventures,
-      I would often lose myself in books, something that hasn’t changed much
-      over the years. At school, I tended toward the quiet side as a student,
-      usually completing my work independently and spending my free time{" "}
-      <Link to="/reading">reading</Link>. By grade 4, I transferred into the
-      gifted program and then eventually the{" "}
-      <ExtLink href="https://www.ibo.org/">
-        International Baccalaureate (IB)
-      </ExtLink>{" "}
-      program in high school, from which I graduated in 2019. I was fairly
-      involved throughout high school, serving on school councils, and
-      participating in sports such as track & field, volleyball, and rugby.
-    </Text>
-
-    <Heading>technology</Heading>
+    <Heading>career</Heading>
 
     <Text>
-      Until I reached high school, technology use was a rare priviledge in our
-      household. Computers was used primarily for studying or working, and the
-      exclusivity of it all piqued my curiosity. When I reached grade 7, my
-      sister began a computer science course in high school. Having nothing
-      better to do, I decided I wanted to follow along. From there, I discovered
-      raw HTML and CSS. The webpage I made was crude and ugly, but it didn’t
-      matter to me at all- I was simply amazed that I could control the pixels
-      on the screen. From then on, I spent much of my free time on learning and
-      gaining experience in software development. This experience came from all
-      sorts of places: I attended hackathons all throughout high school, hosted
-      workshops at my school, and worked on personal projects whenever I could.
+      I studied computer science at the University of Waterloo and during my time there, interned at a number of different companies.
+      Since graduating, I've been working as a software engineer at Figma.
     </Text>
   </Layout>
 )
