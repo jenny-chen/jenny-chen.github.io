@@ -143,9 +143,9 @@ const StageLabel = styled.div`
 `
 
 const Intro = styled.p`
-  color: ${props => props.theme.colors.lightGray};
-  font-family: ${props => props.theme.fonts.mono};
-  font-size: 0.9em;
+  color: ${props => props.theme.colors.black};
+  font-family: ${props => props.theme.fonts.serif};
+  font-size: 0.95em;
   line-height: 1.6;
   margin: 0.9em 0 2em 0;
 `
@@ -183,9 +183,9 @@ const StepBadge = styled.span`
 `
 
 const Sub = styled.p`
-  color: ${props => props.theme.colors.lightGray};
-  font-family: ${props => props.theme.fonts.mono};
-  font-size: 0.8em;
+  color: ${props => props.theme.colors.black};
+  font-family: ${props => props.theme.fonts.serif};
+  font-size: 0.9em;
   line-height: 1.6;
   margin: 0 0 22px 0;
 `
@@ -266,8 +266,8 @@ const Input = styled.input`
 
 const Hint = styled.div`
   color: ${props => props.theme.colors.lightGray};
-  font-family: ${props => props.theme.fonts.mono};
-  font-size: 0.72em;
+  font-family: ${props => props.theme.fonts.serif};
+  font-size: 0.8em;
   line-height: 1.5;
   margin-top: 6px;
 `
@@ -590,10 +590,10 @@ const TotalsBar = styled.div`
 `
 
 const Instructions = styled.div`
-  font-family: ${props => props.theme.fonts.mono};
-  font-size: 0.82em;
+  font-family: ${props => props.theme.fonts.serif};
+  font-size: 0.9em;
   line-height: 1.8;
-  color: ${props => props.theme.colors.lightGray};
+  color: ${props => props.theme.colors.black};
 
   ol {
     padding-left: 20px;
