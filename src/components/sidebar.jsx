@@ -90,16 +90,14 @@ const Sidebar = ({ tab }) => {
               Hi, I'm{" "}
               <Highlight>
                 {/* <Link to="/about" td="none"> */}
-                Jenny
+                  Jenny
                 {/* </Link> */}
               </Highlight>
             </Header>
             <Text>
               I'm currently working fulltime as a software engineer at Figma in
-              San Francisco. I recently graduated from the University of
-              Waterloo in 2024 where I studied computer science. When not at
-              work, you can usually catch me <Link to="/running">running</Link>,
-              travelling, or reading.
+              San Francisco. I recently graduated from the University of Waterloo in 2024 where I studied computer science. When not at work, you
+              can usually catch me <Link to="/running">running</Link>, travelling, or reading.
             </Text>
           </Box>
 
@@ -121,20 +119,7 @@ const Sidebar = ({ tab }) => {
               <Flex flexDirection="column" flex="1" justifyContent="flex-start">
                 <Header>
                   <Link to="/reading" td="none">
-                    {tab === "Reading" ? (
-                      <Highlight>Reading</Highlight>
-                    ) : (
-                      "Reading"
-                    )}
-                  </Link>
-                </Header>
-                <Header>
-                  <Link to="/storyboard" td="none">
-                    {tab === "Storyboard" ? (
-                      <Highlight>Storyboard</Highlight>
-                    ) : (
-                      "Storyboard"
-                    )}
+                    {tab === "Reading" ? <Highlight>Reading</Highlight> : "Reading"}
                   </Link>
                 </Header>
               </Flex>
